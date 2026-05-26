@@ -28,7 +28,7 @@ function initApp() {
 
     // Setup forms
     setupLoginForm();
-    setupRegisterForm();
+   
     setupForgotForm();
     setupOTPInputs();
 
@@ -47,6 +47,7 @@ function initApp() {
     renderPharmacyList();
     renderNotifications();
     updateGreeting();
+    setupRegisterForm();
 }
 
 // ============ NAVIGATION ============
