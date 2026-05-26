@@ -2,1081 +2,1153 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="description"
-    content="SpecialRx – UK Pharmaceutical Special Order Application for pharmacies to order unlicensed, imported, tariff and non-tariff medicines." />
-  <title>SpecialRx – Pharmaceutical Special Orders</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description"
+        content="SpecialRx – UK Pharmaceutical Special Order Application for pharmacies to order unlicensed, imported, tariff and non-tariff medicines." />
+    <title>SpecialRx – Pharmaceutical Special Orders</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
-  <div id="app" class="app-container">
+    <div id="app" class="app-container">
 
-    <!-- ========== SPLASH SCREEN ========== -->
-    <div id="screen-splash" class="screen active">
-      <div class="splash-content">
-        <div class="splash-logo-container">
-          <div class="splash-logo"
-            style="width: 130px; height: 130px; border-radius: 50%; box-shadow: var(--shadow-lg); background: white; border: none; display: flex; align-items: center; justify-content: center; padding: 4px;">
-            <svg viewBox="0 0 100 100" width="100%" height="100%">
-              <circle cx="50" cy="50" r="48" fill="#ffffff" />
-              <path d="M 75 18 C 92 32, 92 68, 75 82 C 86 73, 90 58, 86 45 C 83 34, 79 24, 75 18 Z" fill="#0c355a" />
-              <path
-                d="M 50 16 A 34 34 0 1 0 84 56 C 84 42, 78 28, 68 20 C 76 27, 80 38, 79 50 A 29 29 0 1 1 50 21 C 59 21, 68 25, 74 32 C 67 22, 59 16, 50 16 Z"
-                fill="#005ea6" />
-              <path
-                d="M 40 23 C 58 13, 76 25, 78 45 C 80 58, 72 72, 60 77 C 72 70, 76 56, 73 43 C 70 31, 58 24, 40 23 Z"
-                fill="#718fae" />
-              <text x="17" y="65" font-family="'Inter', 'Arial', sans-serif" font-weight="800" font-size="42"
-                fill="#0a3254">B</text>
-              <text x="42" y="62" font-family="'Inter', 'Arial', sans-serif" font-weight="700" font-size="20"
-                fill="#005ea6">&amp;</text>
-              <text x="54" y="65" font-family="'Inter', 'Arial', sans-serif" font-weight="800" font-size="42"
-                fill="#0072c6">S</text>
-            </svg>
-          </div>
-          <h1 class="splash-title">B&S&nbsp;<span>Specials</span></h1>
-          <p class="splash-subtitle">Pharmaceutical Special Orders</p>
-        </div>
-        <div class="splash-loader">
-          <div class="loader-bar">
-            <div class="loader-fill"></div>
-          </div>
-          <p class="splash-loading-text">Loading secure environment...</p>
-        </div>
-        <div class="splash-footer">
-          <p>UK Pharmaceutical Company</p>
-          <p class="splash-version">v2.1.0 • GPhC Compliant</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ========== LOGIN SCREEN ========== -->
-    <div id="screen-login" class="screen">
-      <div class="auth-screen">
-        <div class="auth-header">
-          <div class="auth-logo-row"
-            style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px; width: 100%; flex-wrap: wrap;">
-            <!-- B&S Specials Logo & Text -->
-            <div style="display: flex; align-items: center; gap: 10px; flex-shrink: 0;">
-              <div class="auth-logo-icon"
-                style="width: 40px; height: 40px; background: white; border-radius: 50%; box-shadow: var(--shadow-sm); flex-shrink: 0; padding: 2px; border: none; display: flex; align-items: center; justify-content: center;">
-                <svg viewBox="0 0 100 100" width="100%" height="100%">
-                  <circle cx="50" cy="50" r="48" fill="#ffffff" />
-                  <path d="M 75 18 C 92 32, 92 68, 75 82 C 86 73, 90 58, 86 45 C 83 34, 79 24, 75 18 Z"
-                    fill="#0c355a" />
-                  <path
-                    d="M 50 16 A 34 34 0 1 0 84 56 C 84 42, 78 28, 68 20 C 76 27, 80 38, 79 50 A 29 29 0 1 1 50 21 C 59 21, 68 25, 74 32 C 67 22, 59 16, 50 16 Z"
-                    fill="#005ea6" />
-                  <path
-                    d="M 40 23 C 58 13, 76 25, 78 45 C 80 58, 72 72, 60 77 C 72 70, 76 56, 73 43 C 70 31, 58 24, 40 23 Z"
-                    fill="#718fae" />
-                  <text x="17" y="65" font-family="'Inter', 'Arial', sans-serif" font-weight="800" font-size="42"
-                    fill="#0a3254">B</text>
-                  <text x="42" y="62" font-family="'Inter', 'Arial', sans-serif" font-weight="700" font-size="20"
-                    fill="#005ea6">&amp;</text>
-                  <text x="54" y="65" font-family="'Inter', 'Arial', sans-serif" font-weight="800" font-size="42"
-                    fill="#0072c6">S</text>
-                </svg>
-              </div>
-              <span style="font-size: 18px; font-weight: 800; color: white; letter-spacing: -0.3px;">B&S Specials</span>
-            </div>
-
-            <!-- Vertical Divider -->
-            <div style="width: 1.5px; height: 26px; background: rgba(255, 255, 255, 0.25); flex-shrink: 0;"></div>
-
-            <!-- Thame Horizontal White Monochrome Logo -->
-            <div class="thame-logo-white" style="display: flex; align-items: center; justify-content: center; height: 32px; flex-shrink: 0;">
-              <svg viewBox="0 0 340 100" style="height: 24px; width: auto;" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <mask id="thame-logo-mask">
-                    <!-- Everything white remains visible -->
-                    <rect x="0" y="0" width="340" height="100" fill="#ffffff" />
-                    <!-- Black circle creates the perfect hollow ring in the center -->
-                    <circle cx="55" cy="50" r="7" fill="#000000" />
-                  </mask>
-                </defs>
-                <!-- Molecule Icon Group with Central Mask -->
-                <g mask="url(#thame-logo-mask)">
-                  <!-- Radiating Arms exactly as per Thame brand geometry -->
-                  <line x1="55" y1="50" x2="45" y2="20" stroke="#ffffff" stroke-width="12" stroke-linecap="round" />
-                  <line x1="55" y1="50" x2="18" y2="72" stroke="#ffffff" stroke-width="12" stroke-linecap="round" />
-                  <line x1="55" y1="50" x2="85" y2="74" stroke="#ffffff" stroke-width="12" stroke-linecap="round" />
-                  
-                  <!-- Outer Spheres -->
-                  <circle cx="45" cy="20" r="13" fill="#ffffff" />
-                  <circle cx="18" cy="72" r="15" fill="#ffffff" />
-                  <circle cx="85" cy="74" r="17" fill="#ffffff" />
-                  
-                  <!-- Center Hub (rendered as a ring via the mask) -->
-                  <circle cx="55" cy="50" r="13" fill="#ffffff" />
-                </g>
-                <!-- Brand Text in matching modern typeface -->
-                <text x="112" y="72" font-family="'Inter', -apple-system, sans-serif" font-weight="700" font-size="66" fill="#ffffff" letter-spacing="-1.5px">Thame</text>
-              </svg>
-            </div>
-          </div>
-          <p class="auth-welcome">Welcome</p>
-          <p class="auth-desc">Sign in to manage your pharmacy orders</p>
-        </div>
-        <div class="auth-body">
-          <div class="auth-tabs">
-            <button class="auth-tab active" data-tab="email">Email</button>
-            <button class="auth-tab" data-tab="otp">OTP</button>
-          </div>
-          <form id="login-form" class="auth-form" novalidate>
-            <div id="login-email-fields">
-              <div class="form-group">
-                <label>Email Address</label>
-                <div class="input-wrapper">
-                  <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                    <polyline points="22,6 12,13 2,6" />
-                  </svg>
-                  <input type="email" id="login-email" placeholder="pharmacy@example.com"
-                    value="admin@greencross.co.uk" />
-                </div>
-                <span class="field-error" id="login-email-error"></span>
-              </div>
-              <div class="form-group">
-                <label>Password</label>
-                <div class="input-wrapper">
-                  <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                  </svg>
-                  <input type="password" id="login-password" placeholder="Enter your password" value="password123" />
-                  <button type="button" class="toggle-password" onclick="togglePassword('login-password', this)">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                      <circle cx="12" cy="12" r="3" />
-                    </svg>
-                  </button>
-                </div>
-                <span class="field-error" id="login-password-error"></span>
-              </div>
-            </div>
-            <div id="login-otp-fields" class="hidden">
-              <div class="form-group">
-                <label>Mobile Number</label>
-                <div class="input-wrapper">
-                  <span class="input-prefix">+44</span>
-                  <input type="tel" id="login-otp-mobile" placeholder="7700 900000" />
-                </div>
-              </div>
-              <button type="button" class="btn btn-outline btn-full" onclick="sendLoginOTP()">Send OTP</button>
-              <div id="login-otp-entry" class="hidden" style="margin-top:16px;">
-                <div class="otp-inputs">
-                  <input type="text" maxlength="1" class="otp-box" data-otp="1" />
-                  <input type="text" maxlength="1" class="otp-box" data-otp="2" />
-                  <input type="text" maxlength="1" class="otp-box" data-otp="3" />
-                  <input type="text" maxlength="1" class="otp-box" data-otp="4" />
-                  <input type="text" maxlength="1" class="otp-box" data-otp="5" />
-                  <input type="text" maxlength="1" class="otp-box" data-otp="6" />
-                </div>
-              </div>
-            </div>
-            <div class="form-options">
-              <label class="checkbox-label">
-                <input type="checkbox" checked /> <span class="checkmark"></span> Remember me
-              </label>
-              <a href="#" onclick="navigateTo('screen-forgot-password');return false;">Forgot Password?</a>
-            </div>
-            <button type="submit" class="btn btn-primary btn-full" id="login-btn">
-              <span>Sign In</span>
-            </button>
-            <button type="button" class="btn btn-biometric btn-full" onclick="biometricLogin()">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
-                <path d="M12 6a4 4 0 00-4 4c0 3 4 7 4 7s4-4 4-7a4 4 0 00-4-4z" />
-                <circle cx="12" cy="10" r="1.5" />
-              </svg>
-              <span>Sign in with Biometrics</span>
-            </button>
-          </form>
-          <div class="auth-footer">
-            <p>Don't have an account? <a href="#" onclick="navigateTo('screen-register');return false;">Register</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ========== REGISTRATION SCREEN ========== -->
-    <div id="screen-register" class="screen">
-      <div class="auth-screen">
-        <div class="screen-top-bar">
-          <button class="back-btn" onclick="navigateTo('screen-login')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="15 18 9 12 15 6" />
-            </svg>
-          </button>
-          <h2>Create Account</h2>
-          <div style="width:40px"></div>
-        </div>
-        <div class="auth-body scrollable">
-          <p class="form-section-desc">Register your pharmacy to start ordering special medicines</p>
-          <form id="register-form" class="auth-form" novalidate>
-            <!-- SECTION 1: PHARMACY DETAILS -->
-            <div class="form-section-header" style="margin-top: 10px; margin-bottom: 16px;">
-              <h3
-                style="font-size: 15px; font-weight: 700; color: var(--primary); border-bottom: 2px solid var(--border-light); padding-bottom: 8px; display: flex; align-items: center; gap: 8px;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"
-                  style="color: var(--accent);">
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                  <polyline points="9 22 9 12 15 12 15 22" />
-                </svg>
-                Pharmacy Details
-              </h3>
-            </div>
-
-            <div class="form-group">
-              <label>Pharmacy Name <span class="required">*</span></label>
-              <div class="input-wrapper">
-                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                  <polyline points="9 22 9 12 15 12 15 22" />
-                </svg>
-                <input type="text" id="reg-pharmacy-name" placeholder="Enter pharmacy store name" />
-              </div>
-              <span class="field-error" id="reg-pharmacy-name-error"></span>
-            </div>
-
-            <div class="form-group">
-              <label>GPhC Number <span class="required">*</span></label>
-              <div class="input-wrapper">
-                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                </svg>
-                <input type="text" id="reg-pharmacy-gphc" placeholder="GPhC-XXXXXXX" />
-              </div>
-              <span class="field-error" id="reg-pharmacy-gphc-error"></span>
-            </div>
-
-            <div class="form-group">
-              <label>Organization Code <span class="required">*</span></label>
-              <div class="input-wrapper">
-                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                  <line x1="9" y1="3" x2="9" y2="21" />
-                  <line x1="15" y1="3" x2="15" y2="21" />
-                  <line x1="3" y1="9" x2="21" y2="9" />
-                  <line x1="3" y1="15" x2="21" y2="15" />
-                </svg>
-                <input type="text" id="reg-org-code" placeholder="Enter organization code" />
-              </div>
-              <span class="field-error" id="reg-org-code-error"></span>
-            </div>
-
-            <div class="form-group">
-              <label>Pharmacy Email ID <span class="required">*</span></label>
-              <div class="input-wrapper">
-                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                  <polyline points="22,6 12,13 2,6" />
-                </svg>
-                <input type="email" id="reg-pharmacy-email" placeholder="pharmacy-contact@example.com" />
-              </div>
-              <span class="field-error" id="reg-pharmacy-email-error"></span>
-            </div>
-
-            <div class="form-group">
-              <label>Contact Number <span class="required">*</span></label>
-              <div class="input-wrapper">
-                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path
-                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                </svg>
-                <input type="tel" id="reg-contact" placeholder="Contact number" />
-              </div>
-              <span class="field-error" id="reg-contact-error"></span>
-            </div>
-
-            <div class="form-group">
-              <label>Postcode <span class="required">*</span></label>
-              <div class="input-wrapper">
-                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-                <input type="text" id="reg-postcode" placeholder="e.g. W8 4PT" />
-              </div>
-              <span class="field-error" id="reg-postcode-error"></span>
-            </div>
-
-            <!-- SECTION 2: PERSONAL DETAILS -->
-            <div class="form-section-header" style="margin-top: 24px; margin-bottom: 16px;">
-              <h3
-                style="font-size: 15px; font-weight: 700; color: var(--primary); border-bottom: 2px solid var(--border-light); padding-bottom: 8px; display: flex; align-items: center; gap: 8px;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"
-                  style="color: var(--accent);">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg>
-                Personal Details
-              </h3>
-            </div>
-
-            <div class="form-group">
-              <label>Director Name <span class="required">*</span></label>
-              <div class="input-wrapper">
-                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg>
-                <input type="text" id="reg-director-name" placeholder="Enter director name" />
-              </div>
-              <span class="field-error" id="reg-director-name-error"></span>
-            </div>
-
-            <div class="form-group">
-              <label>Company Registration Number <span class="required">*</span></label>
-              <div class="input-wrapper">
-                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="3" y="4" width="18" height="16" rx="2" ry="2" />
-                  <line x1="16" y1="2" x2="16" y2="4" />
-                  <line x1="8" y1="2" x2="8" y2="4" />
-                  <line x1="3" y1="10" x2="21" y2="10" />
-                </svg>
-                <input type="text" id="reg-company-reg" placeholder="Enter company reg number" />
-              </div>
-              <span class="field-error" id="reg-company-reg-error"></span>
-            </div>
-
-
-            <label class="checkbox-label" style="margin-bottom:20px;">
-              <input type="checkbox" id="reg-terms" /> <span class="checkmark"></span>
-              I agree to the <a href="#" onclick="event.stopPropagation();">Terms & Conditions</a> and <a href="#"
-                onclick="event.stopPropagation();">Privacy Policy</a>
-            </label>
-            <span class="field-error" id="reg-terms-error"></span>
-            <button type="submit" class="btn btn-primary btn-full">Submit Application Request</button>
-          </form>
-          <div class="auth-footer">
-            <p>Already have an account? <a href="#" onclick="navigateTo('screen-login');return false;">Sign In</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ========== OTP VERIFICATION ========== -->
-    <div id="screen-otp" class="screen">
-      <div class="auth-screen">
-        <div class="screen-top-bar">
-          <button class="back-btn" onclick="navigateTo('screen-register')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="15 18 9 12 15 6" />
-            </svg>
-          </button>
-          <h2>Verify OTP</h2>
-          <div style="width:40px"></div>
-        </div>
-        <div class="auth-body" style="text-align:center;">
-          <div class="otp-illustration">
-            <svg viewBox="0 0 120 120" width="120" height="120">
-              <circle cx="60" cy="60" r="55" fill="var(--primary-light)" opacity="0.2" />
-              <circle cx="60" cy="60" r="40" fill="var(--primary-light)" opacity="0.3" />
-              <rect x="35" y="30" width="50" height="60" rx="8" fill="var(--primary)" opacity="0.9" />
-              <rect x="42" y="50" width="36" height="8" rx="4" fill="white" opacity="0.8" />
-              <rect x="42" y="62" width="24" height="8" rx="4" fill="white" opacity="0.5" />
-              <circle cx="60" cy="40" r="5" fill="white" opacity="0.7" />
-            </svg>
-          </div>
-          <h3 style="margin:20px 0 8px;">Verification Code</h3>
-          <p class="form-section-desc">We've sent a 6-digit code to your registered mobile number</p>
-          <p class="otp-phone-display">+44 •••• ••• 000</p>
-          <div class="otp-inputs" style="margin:24px 0;">
-            <input type="text" maxlength="1" class="otp-box" data-otp-reg="1" />
-            <input type="text" maxlength="1" class="otp-box" data-otp-reg="2" />
-            <input type="text" maxlength="1" class="otp-box" data-otp-reg="3" />
-            <input type="text" maxlength="1" class="otp-box" data-otp-reg="4" />
-            <input type="text" maxlength="1" class="otp-box" data-otp-reg="5" />
-            <input type="text" maxlength="1" class="otp-box" data-otp-reg="6" />
-          </div>
-          <div class="otp-timer">
-            <span id="otp-timer-text">Resend OTP in <strong id="otp-countdown">30</strong>s</span>
-            <button class="btn-link hidden" id="resend-otp-btn" onclick="resendOTP()">Resend OTP</button>
-          </div>
-          <button class="btn btn-primary btn-full" style="margin-top:24px;" onclick="verifyOTP()">Verify &
-            Continue</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- ========== FORGOT PASSWORD ========== -->
-    <div id="screen-forgot-password" class="screen">
-      <div class="auth-screen">
-        <div class="screen-top-bar">
-          <button class="back-btn" onclick="navigateTo('screen-login')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="15 18 9 12 15 6" />
-            </svg>
-          </button>
-          <h2>Reset Password</h2>
-          <div style="width:40px"></div>
-        </div>
-        <div class="auth-body" style="text-align:center;">
-          <div class="otp-illustration">
-            <svg viewBox="0 0 120 120" width="120" height="120">
-              <circle cx="60" cy="60" r="55" fill="#FFF3E0" opacity="0.5" />
-              <circle cx="60" cy="60" r="40" fill="#FFB74D" opacity="0.2" />
-              <rect x="35" y="35" width="50" height="50" rx="12" fill="var(--primary)" />
-              <path d="M60 50 L60 65" stroke="white" stroke-width="3" stroke-linecap="round" />
-              <circle cx="60" cy="72" r="2.5" fill="white" />
-            </svg>
-          </div>
-          <h3 style="margin:20px 0 8px;">Forgot Your Password?</h3>
-          <p class="form-section-desc">Enter your email to receive a reset link</p>
-          <form id="forgot-form" class="auth-form" style="text-align:left;margin-top:24px;" novalidate>
-            <div class="form-group">
-              <label>Email Address</label>
-              <div class="input-wrapper">
-                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                  <polyline points="22,6 12,13 2,6" />
-                </svg>
-                <input type="email" id="forgot-email" placeholder="pharmacy@example.com" />
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary btn-full">Send Reset Link</button>
-          </form>
-          <div id="forgot-success" class="hidden" style="margin-top:24px;">
-            <div class="success-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" width="48" height="48">
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                <polyline points="22 4 12 14.01 9 11.01" />
-              </svg>
-            </div>
-            <h3 style="margin:16px 0 8px;color:var(--success);">Email Sent!</h3>
-            <p class="form-section-desc">Check your inbox for password reset instructions</p>
-            <button class="btn btn-primary btn-full" style="margin-top:20px;" onclick="navigateTo('screen-login')">Back
-              to Login</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ========== SELECT PHARMACY ========== -->
-    <div id="screen-select-pharmacy" class="screen">
-      <div class="full-screen-page">
-        <div class="screen-top-bar">
-          <div style="width:40px"></div>
-          <h2>Select Pharmacy</h2>
-          <div style="width:40px"></div>
-        </div>
-        <div class="page-body scrollable">
-          <p class="form-section-desc" style="text-align:center;margin-bottom:20px;">Choose the pharmacy you're ordering
-            for today</p>
-          <div class="search-bar-mini">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="8" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-            <input type="text" id="pharmacy-search" placeholder="Search pharmacy..."
-              oninput="filterPharmacies(this.value)" />
-          </div>
-          <div id="pharmacy-list" class="pharmacy-list">
-            <!-- Populated by JS -->
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ========== MAIN APP (with bottom nav) ========== -->
-    <div id="screen-main" class="screen">
-      <div class="main-app">
-        <!-- TOP STATUS BAR -->
-        <div class="app-status-bar">
-          <span class="status-time" id="status-time">13:36</span>
-          <div class="status-icons">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
-              <path
-                d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z" />
-            </svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
-              <rect x="17" y="4" width="4" height="16" rx="1" />
-              <rect x="11" y="8" width="4" height="12" rx="1" />
-              <rect x="5" y="12" width="4" height="8" rx="1" />
-            </svg>
-            <span class="battery-icon">87%</span>
-          </div>
-        </div>
-
-        <!-- PAGE CONTAINER -->
-        <div class="page-container">
-
-          <!-- ===== HOME / DASHBOARD ===== -->
-          <div id="page-home" class="page active">
-            <div class="page-header-dashboard">
-              <div class="header-top">
-                <div class="header-left">
-                  <p class="greeting" id="greeting-text">Greetings From B&S</p>
-                  <h2 class="pharmacy-name" id="selected-pharmacy-name">Green Cross Pharmacy</h2>
-                </div>
-                <div class="header-right">
-                  <button class="icon-btn notification-btn" onclick="showPage('page-notifications')">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-                      <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-                    </svg>
-                    <span class="notification-badge" id="notif-badge">3</span>
-                  </button>
-                  <div class="avatar" onclick="switchTab('account')">
-                    <span>GC</span>
-                  </div>
-                </div>
-              </div>
-              <div class="selected-pharmacy-pill" onclick="navigateTo('screen-select-pharmacy')">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-                <span id="pharmacy-pill-name">Green Cross Pharmacy</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </div>
-            </div>
-            <div class="page-scroll">
-              <!-- Dashboard Search Bar -->
-              <div class="dash-search-bar" onclick="switchTab('search')">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
-                  <circle cx="11" cy="11" r="8" />
-                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                </svg>
-                <span>Search medicines, brands...</span>
-              </div>
-
-              <!-- Dashboard Options Grid -->
-              <div class="dash-options-grid">
-                <!-- Place Order -->
-                <div class="dash-option-card place-order" onclick="switchTab('search')">
-                  <div class="doc-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <circle cx="9" cy="21" r="1" />
-                      <circle cx="20" cy="21" r="1" />
-                      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-                    </svg>
-                  </div>
-                  <div class="doc-info">
-                    <span class="doc-title">Place Order</span>
-                    <span class="doc-subtitle">Search & order special medicines</span>
-                  </div>
-                </div>
-
-                <!-- Reorder -->
-                <div class="dash-option-card reorder" onclick="showPage('page-orders');setOrderTab('repeat');">
-                  <div class="doc-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <polyline points="17 1 21 5 17 9" />
-                      <path d="M3 11V9a4 4 0 0 1 4-4h14" />
-                      <polyline points="7 23 3 19 7 15" />
-                      <path d="M21 13v2a4 4 0 0 1-4 4H3" />
-                    </svg>
-                  </div>
-                  <div class="doc-info">
-                    <span class="doc-title">Reorder</span>
-                    <span class="doc-subtitle">Quick refill for repeat items</span>
-                  </div>
-                </div>
-
-                <!-- Today's Orders -->
-                <div class="dash-option-card today-orders" onclick="showPage('page-orders');setOrderTab('active');">
-                  <div class="doc-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                      <polyline points="14 2 14 8 20 8" />
-                    </svg>
-                  </div>
-                  <div class="doc-info">
-                    <span class="doc-title">Today's Orders <span class="doc-badge" id="today-orders">4</span></span>
-                    <span class="doc-subtitle">Track active & pending orders</span>
-                  </div>
-                </div>
-
-                <!-- Product Support -->
-                <div class="dash-option-card product-support"
-                  onclick="showPage('page-help');setSupportTab('product-support');">
-                  <div class="doc-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                    </svg>
-                  </div>
-                  <div class="doc-info">
-                    <span class="doc-title">Product Support</span>
-                    <span class="doc-subtitle">Inquiries & GPhC compliance</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Recent Orders Section -->
-              <div class="section-header" style="margin-top: 8px;">
-                <h3>Recent Orders</h3>
-                <a href="#" class="see-all" onclick="showPage('page-orders');switchTab('orders');return false;">See
-                  All</a>
-              </div>
-              <div id="recent-orders-list" class="orders-list">
-                <!-- Dynamic cards populated by JS -->
-              </div>
-            </div>
-          </div>
-
-
-          <!-- ===== SEARCH / MEDICINES ===== -->
-          <div id="page-search" class="page">
-            <div class="page-header-simple">
-              <h2>Search Medicines</h2>
-            </div>
-            <div class="page-scroll">
-              <div class="search-bar">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="11" cy="11" r="8" />
-                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                </svg>
-                <input type="text" id="medicine-search" placeholder="Search by name, code, or category..."
-                  oninput="searchMedicines(this.value)" />
-                <button class="filter-btn" onclick="toggleFilterPanel()">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="4" y1="6" x2="20" y2="6" />
-                    <line x1="8" y1="12" x2="20" y2="12" />
-                    <line x1="12" y1="18" x2="20" y2="18" />
-                    <circle cx="6" cy="12" r="2" />
-                    <circle cx="10" cy="18" r="2" />
-                  </svg>
-                </button>
-              </div>
-              <!-- Category Tabs -->
-              <div class="category-tabs">
-                <button class="cat-tab active" data-cat="all" onclick="filterByCategory('all', this)">All</button>
-                <button class="cat-tab" data-cat="tariff" onclick="filterByCategory('tariff', this)">Tariff</button>
-                <button class="cat-tab" data-cat="non-tariff"
-                  onclick="filterByCategory('non-tariff', this)">Non-Tariff</button>
-                <button class="cat-tab" data-cat="imported"
-                  onclick="filterByCategory('imported', this)">Imported</button>
-                <button class="cat-tab" data-cat="specials"
-                  onclick="filterByCategory('specials', this)">Specials</button>
-                <button class="cat-tab" data-cat="obtain" onclick="filterByCategory('obtain', this)">Obtain</button>
-              </div>
-              <!-- Filter Panel -->
-              <div id="filter-panel" class="filter-panel hidden">
-                <div class="filter-section">
-                  <h4>Availability</h4>
-                  <div class="filter-chips">
-                    <button class="chip active" onclick="toggleChip(this)">All</button>
-                    <button class="chip" onclick="toggleChip(this)">In Stock</button>
-                    <button class="chip" onclick="toggleChip(this)">Out of Stock</button>
-                  </div>
-                </div>
-                <div class="filter-section">
-                  <h4>Prescription</h4>
-                  <div class="filter-chips">
-                    <button class="chip active" onclick="toggleChip(this)">All</button>
-                    <button class="chip" onclick="toggleChip(this)">Rx Required</button>
-                    <button class="chip" onclick="toggleChip(this)">Non-Rx</button>
-                  </div>
-                </div>
-              </div>
-              <!-- Products Grid -->
-              <div id="products-grid" class="products-grid">
-                <!-- Populated by JS -->
-              </div>
-            </div>
-          </div>
-
-          <!-- ===== PRODUCT DETAIL ===== -->
-          <div id="page-product-detail" class="page">
-            <div class="page-header-simple" style="position:relative;">
-              <button class="back-btn" onclick="showPage('page-search')" style="position:absolute;left:16px;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="15 18 9 12 15 6" />
-                </svg>
-              </button>
-              <h2>Product Details</h2>
-            </div>
-            <div class="page-scroll" id="product-detail-content">
-              <!-- Populated by JS -->
-            </div>
-          </div>
-
-          <!-- ===== CART ===== -->
-          <div id="page-cart" class="page">
-            <div class="page-header-simple">
-              <h2>Order Cart</h2>
-              <span class="cart-count-badge" id="cart-header-count">0</span>
-            </div>
-            <div class="page-scroll" id="cart-content">
-              <!-- Populated by JS -->
-            </div>
-          </div>
-
-          <!-- ===== ORDER SUCCESS ===== -->
-          <div id="page-order-success" class="page">
-            <div class="page-scroll"
-              style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100%;padding:40px 24px;text-align:center;">
-              <div class="success-animation">
-                <div class="success-circle">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" width="48" height="48">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                </div>
-              </div>
-              <h2 style="margin:24px 0 8px;color:var(--text-primary);">Order Placed Successfully!</h2>
-              <p class="form-section-desc">Your order has been submitted and is being processed</p>
-              <div class="order-success-card">
-                <div class="success-detail"><span>Order ID</span><strong
-                    id="success-order-id">SRX-20260522-0045</strong></div>
-                <div class="success-detail"><span>Date</span><strong>22 May 2026</strong></div>
-                <div class="success-detail"><span>Status</span><span class="status-pill status-received">Order
-                    Received</span></div>
-                <div class="success-detail"><span>Expected Delivery</span><strong>24-26 May 2026</strong></div>
-              </div>
-              <button class="btn btn-primary btn-full" style="margin-top:24px;"
-                onclick="viewOrderTracking(latestOrderId)">Track Order</button>
-              <button class="btn btn-outline btn-full" style="margin-top:12px;"
-                onclick="showPage('page-home');switchTab('home');">Back to Home</button>
-            </div>
-          </div>
-
-          <!-- ===== ORDERS ===== -->
-          <div id="page-orders" class="page">
-            <div class="page-header-simple">
-              <h2>My Orders</h2>
-            </div>
-            <div class="page-scroll">
-              <div class="order-tabs" id="order-tabs">
-                <button class="order-tab active" data-otab="active" onclick="setOrderTab('active')">Active</button>
-                <button class="order-tab" data-otab="pending" onclick="setOrderTab('pending')">Pending</button>
-                <button class="order-tab" data-otab="repeat" onclick="setOrderTab('repeat')">Repeat</button>
-                <button class="order-tab" data-otab="hold" onclick="setOrderTab('hold')">Hold</button>
-                <button class="order-tab" data-otab="cancelled" onclick="setOrderTab('cancelled')">Cancelled</button>
-                <button class="order-tab" data-otab="delivered" onclick="setOrderTab('delivered')">Delivered</button>
-              </div>
-              <div id="orders-list-container" class="orders-list">
-                <!-- Populated by JS -->
-              </div>
-            </div>
-          </div>
-
-          <!-- ===== ORDER TRACKING ===== -->
-          <div id="page-order-tracking" class="page">
-            <div class="page-header-simple" style="position:relative;">
-              <button class="back-btn" onclick="showPage('page-orders')" style="position:absolute;left:16px;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="15 18 9 12 15 6" />
-                </svg>
-              </button>
-              <h2>Order Tracking</h2>
-            </div>
-            <div class="page-scroll" id="order-tracking-content">
-              <!-- Populated by JS -->
-            </div>
-          </div>
-
-          <!-- ===== NOTIFICATIONS ===== -->
-          <div id="page-notifications" class="page">
-            <div class="page-header-simple" style="position:relative;">
-              <button class="back-btn" onclick="showPage('page-home')" style="position:absolute;left:16px;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="15 18 9 12 15 6" />
-                </svg>
-              </button>
-              <h2>Notifications</h2>
-            </div>
-            <div class="page-scroll" id="notifications-content">
-              <!-- Populated by JS -->
-            </div>
-          </div>
-
-          <!-- ===== HELP & SUPPORT ===== -->
-          <div id="page-help" class="page">
-            <div class="page-header-simple">
-              <h2>Help & Support</h2>
-            </div>
-            <div class="page-scroll">
-              <div class="support-tabs">
-                <button class="order-tab active" data-stab="product-support"
-                  onclick="setSupportTab('product-support')">Product Support</button>
-                <button class="order-tab" data-stab="order-support" onclick="setSupportTab('order-support')">Order
-                  Support</button>
-                <button class="order-tab" data-stab="faq" onclick="setSupportTab('faq')">FAQ</button>
-              </div>
-              <div id="support-content">
-                <!-- Populated by JS -->
-              </div>
-            </div>
-          </div>
-
-          <!-- ===== ACCOUNT ===== -->
-          <div id="page-account" class="page">
-            <div class="page-scroll">
-              <div class="account-header">
-                <div class="account-avatar">
-                  <span>GC</span>
-                </div>
-                <h3 id="account-name">Green Cross Pharmacy</h3>
-                <p id="account-email">admin@greencross.co.uk</p>
-                <span class="verified-badge">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" width="14" height="14">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                    <polyline points="22 4 12 14.01 9 11.01" />
-                  </svg>
-                  GPhC Verified
-                </span>
-              </div>
-              <!-- Credit Account Card -->
-              <div class="credit-card-widget">
-                <div class="credit-card-inner">
-                  <div class="cc-top">
-                    <span class="cc-label">Credit Account</span>
-                    <span class="cc-account" id="cc-account-num">ACC-2024-00147</span>
-                  </div>
-                  <div class="cc-details">
-                    <div class="cc-detail"><span>Credit Limit</span><strong>£25,000</strong></div>
-                    <div class="cc-detail"><span>Available</span><strong>£18,450</strong></div>
-                    <div class="cc-detail"><span>Due Amount</span><strong>£6,550</strong></div>
-                  </div>
-                  <div class="cc-bottom">
-                    <div class="cc-detail"><span>Payment Terms</span><strong>Net 30</strong></div>
-                    <div class="cc-detail"><span>Daily Limit</span><strong>£5,000</strong></div>
-                  </div>
-                </div>
-              </div>
-              <!-- Account Menu -->
-              <div class="account-menu">
-                <div class="menu-section">
-                  <h4>Orders & Activity</h4>
-                  <button class="menu-item" onclick="showPage('page-orders');switchTab('orders');">
-                    <div class="mi-left">
-                      <div class="mi-icon blue-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                          stroke-width="2">
-                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                          <polyline points="14 2 14 8 20 8" />
-                        </svg></div><span>My Orders</span>
+        <!-- ========== SPLASH SCREEN ========== -->
+        <div id="screen-splash" class="screen active">
+            <div class="splash-content">
+                <div class="splash-logo-container">
+                    <div class="splash-logo"
+                        style="width: 130px; height: 130px; border-radius: 50%; box-shadow: var(--shadow-lg); background: white; border: none; display: flex; align-items: center; justify-content: center; padding: 4px;">
+                        <svg viewBox="0 0 100 100" width="100%" height="100%">
+                            <circle cx="50" cy="50" r="48" fill="#ffffff" />
+                            <path d="M 75 18 C 92 32, 92 68, 75 82 C 86 73, 90 58, 86 45 C 83 34, 79 24, 75 18 Z"
+                                fill="#0c355a" />
+                            <path
+                                d="M 50 16 A 34 34 0 1 0 84 56 C 84 42, 78 28, 68 20 C 76 27, 80 38, 79 50 A 29 29 0 1 1 50 21 C 59 21, 68 25, 74 32 C 67 22, 59 16, 50 16 Z"
+                                fill="#005ea6" />
+                            <path
+                                d="M 40 23 C 58 13, 76 25, 78 45 C 80 58, 72 72, 60 77 C 72 70, 76 56, 73 43 C 70 31, 58 24, 40 23 Z"
+                                fill="#718fae" />
+                            <text x="17" y="65" font-family="'Inter', 'Arial', sans-serif" font-weight="800"
+                                font-size="42" fill="#0a3254">B</text>
+                            <text x="42" y="62" font-family="'Inter', 'Arial', sans-serif" font-weight="700"
+                                font-size="20" fill="#005ea6">&amp;</text>
+                            <text x="54" y="65" font-family="'Inter', 'Arial', sans-serif" font-weight="800"
+                                font-size="42" fill="#0072c6">S</text>
+                        </svg>
                     </div>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
-                      <polyline points="9 18 15 12 9 6" />
-                    </svg>
-                  </button>
-                  <button class="menu-item" onclick="showPage('page-help');switchTab('help');">
-                    <div class="mi-left">
-                      <div class="mi-icon orange-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                          stroke-width="2">
-                          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                        </svg></div><span>Service Requests</span>
-                    </div>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
-                      <polyline points="9 18 15 12 9 6" />
-                    </svg>
-                  </button>
-                  <button class="menu-item" onclick="showAccountSubpage('prescriptions')">
-                    <div class="mi-left">
-                      <div class="mi-icon green-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                          stroke-width="2">
-                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                          <polyline points="14 2 14 8 20 8" />
-                          <line x1="16" y1="13" x2="8" y2="13" />
-                          <line x1="16" y1="17" x2="8" y2="17" />
-                        </svg></div><span>My Prescriptions</span>
-                    </div>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
-                      <polyline points="9 18 15 12 9 6" />
-                    </svg>
-                  </button>
+                    <h1 class="splash-title">B&S&nbsp;<span>Specials</span></h1>
+                    <p class="splash-subtitle">Pharmaceutical Special Orders</p>
                 </div>
-                <div class="menu-section">
-                  <h4>Account Settings</h4>
-                  <button class="menu-item" onclick="showAccountSubpage('profile')">
-                    <div class="mi-left">
-                      <div class="mi-icon purple-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                          stroke-width="2">
-                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                          <circle cx="12" cy="7" r="4" />
-                        </svg></div><span>Edit Profile</span>
+                <div class="splash-loader">
+                    <div class="loader-bar">
+                        <div class="loader-fill"></div>
                     </div>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
-                      <polyline points="9 18 15 12 9 6" />
-                    </svg>
-                  </button>
-                  <button class="menu-item" onclick="showAccountSubpage('address')">
-                    <div class="mi-left">
-                      <div class="mi-icon blue-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                          stroke-width="2">
-                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                          <circle cx="12" cy="10" r="3" />
-                        </svg></div><span>Delivery Address</span>
-                    </div>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
-                      <polyline points="9 18 15 12 9 6" />
-                    </svg>
-                  </button>
-                  <button class="menu-item" onclick="showPage('page-notifications')">
-                    <div class="mi-left">
-                      <div class="mi-icon orange-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                          stroke-width="2">
-                          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-                          <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-                        </svg></div><span>Notifications</span>
-                    </div>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
-                      <polyline points="9 18 15 12 9 6" />
-                    </svg>
-                  </button>
-                  <button class="menu-item">
-                    <div class="mi-left">
-                      <div class="mi-icon green-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                          stroke-width="2">
-                          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                        </svg></div><span>Privacy & Security</span>
-                    </div>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
-                      <polyline points="9 18 15 12 9 6" />
-                    </svg>
-                  </button>
-                  <button class="menu-item">
-                    <div class="mi-left">
-                      <div class="mi-icon purple-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                          stroke-width="2">
-                          <circle cx="12" cy="12" r="3" />
-                          <path
-                            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
-                        </svg></div><span>App Settings</span>
-                    </div>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
-                      <polyline points="9 18 15 12 9 6" />
-                    </svg>
-                  </button>
-                  <button class="menu-item" onclick="showAccountSubpage('change-password')">
-                    <div class="mi-left">
-                      <div class="mi-icon blue-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                          stroke-width="2">
-                          <path
-                            d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4" />
-                        </svg></div><span>Change Password</span>
-                    </div>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
-                      <polyline points="9 18 15 12 9 6" />
-                    </svg>
-                  </button>
+                    <p class="splash-loading-text">Loading secure environment...</p>
                 </div>
-                <div class="menu-section">
-                  <button class="menu-item logout-item" onclick="logout()">
-                    <div class="mi-left">
-                      <div class="mi-icon red-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                          stroke-width="2">
-                          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
-                          <polyline points="16 17 21 12 16 7" />
-                          <line x1="21" y1="12" x2="9" y2="12" />
-                        </svg></div><span>Logout</span>
-                    </div>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
-                      <polyline points="9 18 15 12 9 6" />
-                    </svg>
-                  </button>
+                <div class="splash-footer">
+                    <p>UK Pharmaceutical Company</p>
+                    <p class="splash-version">v2.1.0 • GPhC Compliant</p>
                 </div>
-              </div>
             </div>
-          </div>
+        </div>
 
-        </div><!-- end page-container -->
+        <!-- ========== LOGIN SCREEN ========== -->
+        <div id="screen-login" class="screen">
+            <div class="auth-screen">
+                <div class="auth-header">
+                    <div class="auth-logo-row"
+                        style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px; width: 100%; flex-wrap: wrap;">
+                        <!-- B&S Specials Logo & Text -->
+                        <div style="display: flex; align-items: center; gap: 10px; flex-shrink: 0;">
+                            <div class="auth-logo-icon"
+                                style="width: 40px; height: 40px; background: white; border-radius: 50%; box-shadow: var(--shadow-sm); flex-shrink: 0; padding: 2px; border: none; display: flex; align-items: center; justify-content: center;">
+                                <svg viewBox="0 0 100 100" width="100%" height="100%">
+                                    <circle cx="50" cy="50" r="48" fill="#ffffff" />
+                                    <path
+                                        d="M 75 18 C 92 32, 92 68, 75 82 C 86 73, 90 58, 86 45 C 83 34, 79 24, 75 18 Z"
+                                        fill="#0c355a" />
+                                    <path
+                                        d="M 50 16 A 34 34 0 1 0 84 56 C 84 42, 78 28, 68 20 C 76 27, 80 38, 79 50 A 29 29 0 1 1 50 21 C 59 21, 68 25, 74 32 C 67 22, 59 16, 50 16 Z"
+                                        fill="#005ea6" />
+                                    <path
+                                        d="M 40 23 C 58 13, 76 25, 78 45 C 80 58, 72 72, 60 77 C 72 70, 76 56, 73 43 C 70 31, 58 24, 40 23 Z"
+                                        fill="#718fae" />
+                                    <text x="17" y="65" font-family="'Inter', 'Arial', sans-serif" font-weight="800"
+                                        font-size="42" fill="#0a3254">B</text>
+                                    <text x="42" y="62" font-family="'Inter', 'Arial', sans-serif" font-weight="700"
+                                        font-size="20" fill="#005ea6">&amp;</text>
+                                    <text x="54" y="65" font-family="'Inter', 'Arial', sans-serif" font-weight="800"
+                                        font-size="42" fill="#0072c6">S</text>
+                                </svg>
+                            </div>
+                            <span style="font-size: 18px; font-weight: 800; color: white; letter-spacing: -0.3px;">B&S
+                                Specials</span>
+                        </div>
 
-        <!-- BOTTOM NAV -->
-        <nav class="bottom-nav" id="bottom-nav">
-          <button class="nav-item active" data-tab="home" onclick="switchTab('home')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-              <polyline points="9 22 9 12 15 12 15 22" />
-            </svg>
-            <span>Home</span>
-          </button>
-          <button class="nav-item" data-tab="search" onclick="switchTab('search')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="8" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-            <span>Search</span>
-          </button>
-          <button class="nav-item cart-nav" data-tab="cart" onclick="switchTab('cart')">
-            <div class="cart-icon-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="9" cy="21" r="1" />
-                <circle cx="20" cy="21" r="1" />
-                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-              </svg>
-              <span class="cart-badge" id="cart-badge">0</span>
+                        <!-- Vertical Divider -->
+                        <div style="width: 1.5px; height: 26px; background: rgba(255, 255, 255, 0.25); flex-shrink: 0;">
+                        </div>
+
+                        <!-- Thame Horizontal White Monochrome Logo -->
+                        <div class="thame-logo-white"
+                            style="display: flex; align-items: center; justify-content: center; height: 32px; flex-shrink: 0;">
+                            <svg viewBox="0 0 340 100" style="height: 24px; width: auto;"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <mask id="thame-logo-mask">
+                                        <!-- Everything white remains visible -->
+                                        <rect x="0" y="0" width="340" height="100" fill="#ffffff" />
+                                        <!-- Black circle creates the perfect hollow ring in the center -->
+                                        <circle cx="55" cy="50" r="7" fill="#000000" />
+                                    </mask>
+                                </defs>
+                                <!-- Molecule Icon Group with Central Mask -->
+                                <g mask="url(#thame-logo-mask)">
+                                    <!-- Radiating Arms exactly as per Thame brand geometry -->
+                                    <line x1="55" y1="50" x2="45" y2="20" stroke="#ffffff" stroke-width="12"
+                                        stroke-linecap="round" />
+                                    <line x1="55" y1="50" x2="18" y2="72" stroke="#ffffff" stroke-width="12"
+                                        stroke-linecap="round" />
+                                    <line x1="55" y1="50" x2="85" y2="74" stroke="#ffffff" stroke-width="12"
+                                        stroke-linecap="round" />
+
+                                    <!-- Outer Spheres -->
+                                    <circle cx="45" cy="20" r="13" fill="#ffffff" />
+                                    <circle cx="18" cy="72" r="15" fill="#ffffff" />
+                                    <circle cx="85" cy="74" r="17" fill="#ffffff" />
+
+                                    <!-- Center Hub (rendered as a ring via the mask) -->
+                                    <circle cx="55" cy="50" r="13" fill="#ffffff" />
+                                </g>
+                                <!-- Brand Text in matching modern typeface -->
+                                <text x="112" y="72" font-family="'Inter', -apple-system, sans-serif" font-weight="700"
+                                    font-size="66" fill="#ffffff" letter-spacing="-1.5px">Thame</text>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="auth-welcome">Welcome</p>
+                    <p class="auth-desc">Sign in to manage your pharmacy orders</p>
+                </div>
+                <div class="auth-body">
+                    <div class="auth-tabs">
+                        <button class="auth-tab active" data-tab="email">Email</button>
+                        <button class="auth-tab" data-tab="otp">OTP</button>
+                    </div>
+                    <form id="login-form" class="auth-form" novalidate>
+                        <div id="login-email-fields">
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <div class="input-wrapper">
+                                    <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                        <polyline points="22,6 12,13 2,6" />
+                                    </svg>
+                                    <input type="email" id="login-email" placeholder="pharmacy@example.com"
+                                        value="admin@greencross.co.uk" />
+                                </div>
+                                <span class="field-error" id="login-email-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <div class="input-wrapper">
+                                    <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                                    </svg>
+                                    <input type="password" id="login-password" placeholder="Enter your password"
+                                        value="password123" />
+                                    <button type="button" class="toggle-password"
+                                        onclick="togglePassword('login-password', this)">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                            <circle cx="12" cy="12" r="3" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <span class="field-error" id="login-password-error"></span>
+                            </div>
+                        </div>
+                        <div id="login-otp-fields" class="hidden">
+                            <div class="form-group">
+                                <label>Mobile Number</label>
+                                <div class="input-wrapper">
+                                    <span class="input-prefix">+44</span>
+                                    <input type="tel" id="login-otp-mobile" placeholder="7700 900000" />
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-outline btn-full" onclick="sendLoginOTP()">Send
+                                OTP</button>
+                            <div id="login-otp-entry" class="hidden" style="margin-top:16px;">
+                                <div class="otp-inputs">
+                                    <input type="text" maxlength="1" class="otp-box" data-otp="1" />
+                                    <input type="text" maxlength="1" class="otp-box" data-otp="2" />
+                                    <input type="text" maxlength="1" class="otp-box" data-otp="3" />
+                                    <input type="text" maxlength="1" class="otp-box" data-otp="4" />
+                                    <input type="text" maxlength="1" class="otp-box" data-otp="5" />
+                                    <input type="text" maxlength="1" class="otp-box" data-otp="6" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked /> <span class="checkmark"></span> Remember me
+                            </label>
+                            <a href="#" onclick="navigateTo('screen-forgot-password');return false;">Forgot
+                                Password?</a>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full" id="login-btn">
+                            <span>Sign In</span>
+                        </button>
+                        <button type="button" class="btn btn-biometric btn-full" onclick="biometricLogin()">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22"
+                                height="22">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                                <path d="M12 6a4 4 0 00-4 4c0 3 4 7 4 7s4-4 4-7a4 4 0 00-4-4z" />
+                                <circle cx="12" cy="10" r="1.5" />
+                            </svg>
+                            <span>Sign in with Biometrics</span>
+                        </button>
+                    </form>
+                    <div class="auth-footer">
+                        <p>Don't have an account? <a href="#"
+                                onclick="navigateTo('screen-register');return false;">Register</a></p>
+                    </div>
+                </div>
             </div>
-            <span>Cart</span>
-          </button>
-          <button class="nav-item" data-tab="orders" onclick="switchTab('orders')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-              <polyline points="14 2 14 8 20 8" />
-              <line x1="16" y1="13" x2="8" y2="13" />
-              <line x1="16" y1="17" x2="8" y2="17" />
-            </svg>
-            <span>Orders</span>
-          </button>
-          <button class="nav-item" data-tab="account" onclick="switchTab('account')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-              <circle cx="12" cy="7" r="4" />
-            </svg>
-            <span>Account</span>
-          </button>
-        </nav>
-      </div>
-    </div>
-
-    <!-- ========== LOADING OVERLAY ========== -->
-    <div id="loading-overlay" class="loading-overlay hidden">
-      <div class="loading-spinner">
-        <div class="spinner"></div>
-        <p id="loading-text">Processing...</p>
-      </div>
-    </div>
-
-    <!-- ========== TOAST ========== -->
-    <div id="toast" class="toast hidden">
-      <div class="toast-content">
-        <span class="toast-icon" id="toast-icon"></span>
-        <span class="toast-message" id="toast-message"></span>
-      </div>
-    </div>
-
-    <!-- ========== MODAL / BOTTOM SHEET ========== -->
-    <div id="modal-overlay" class="modal-overlay hidden" onclick="closeModal()">
-      <div class="modal-sheet" onclick="event.stopPropagation()">
-        <div class="modal-handle"></div>
-        <div id="modal-content"></div>
-      </div>
-    </div>
-
-    <!-- ========== ACCOUNT SUBPAGES ========== -->
-    <div id="screen-account-subpage" class="screen">
-      <div class="full-screen-page">
-        <div class="screen-top-bar">
-          <button class="back-btn" onclick="navigateTo('screen-main');showPage('page-account');">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="15 18 9 12 15 6" />
-            </svg>
-          </button>
-          <h2 id="subpage-title">Profile</h2>
-          <div style="width:40px"></div>
         </div>
-        <div class="page-body scrollable" id="subpage-content">
-          <!-- Dynamic content -->
+
+        <!-- ========== REGISTRATION SCREEN ========== -->
+        <div id="screen-register" class="screen">
+            <div class="auth-screen">
+                <div class="screen-top-bar">
+                    <button class="back-btn" onclick="navigateTo('screen-login')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                    </button>
+                    <h2>Create Account</h2>
+                    <div style="width:40px"></div>
+                </div>
+                <div class="auth-body scrollable">
+                    <p class="form-section-desc">Register your pharmacy to start ordering special medicines</p>
+                    <form id="register-form" class="auth-form" novalidate>
+                        <!-- SECTION 1: PHARMACY DETAILS -->
+                        <div class="form-section-header" style="margin-top: 10px; margin-bottom: 16px;">
+                            <h3
+                                style="font-size: 15px; font-weight: 700; color: var(--primary); border-bottom: 2px solid var(--border-light); padding-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+                                    height="18" style="color: var(--accent);">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                                    <polyline points="9 22 9 12 15 12 15 22" />
+                                </svg>
+                                Pharmacy Details
+                            </h3>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Pharmacy Name <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                                    <polyline points="9 22 9 12 15 12 15 22" />
+                                </svg>
+                                <input type="text" id="reg-pharmacy-name" placeholder="Enter pharmacy store name" />
+                            </div>
+                            <span class="field-error" id="reg-pharmacy-name-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>GPhC Number <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                </svg>
+                                <input type="text" id="reg-pharmacy-gphc" placeholder="GPhC-XXXXXXX" />
+                            </div>
+                            <span class="field-error" id="reg-pharmacy-gphc-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Organization Code <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <line x1="9" y1="3" x2="9" y2="21" />
+                                    <line x1="15" y1="3" x2="15" y2="21" />
+                                    <line x1="3" y1="9" x2="21" y2="9" />
+                                    <line x1="3" y1="15" x2="21" y2="15" />
+                                </svg>
+                                <input type="text" id="reg-org-code" placeholder="Enter organization code" />
+                            </div>
+                            <span class="field-error" id="reg-org-code-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Pharmacy Email ID <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                                <input type="email" id="reg-pharmacy-email"
+                                    placeholder="pharmacy-contact@example.com" />
+                            </div>
+                            <span class="field-error" id="reg-pharmacy-email-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Contact Number <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                                <input type="tel" id="reg-contact" placeholder="Contact number" />
+                            </div>
+                            <span class="field-error" id="reg-contact-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Postcode <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                                <input type="text" id="reg-postcode" placeholder="e.g. W8 4PT" />
+                            </div>
+                            <span class="field-error" id="reg-postcode-error"></span>
+                        </div>
+
+                        <!-- SECTION 2: PERSONAL DETAILS -->
+                        <div class="form-section-header" style="margin-top: 24px; margin-bottom: 16px;">
+                            <h3
+                                style="font-size: 15px; font-weight: 700; color: var(--primary); border-bottom: 2px solid var(--border-light); padding-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+                                    height="18" style="color: var(--accent);">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                    <circle cx="12" cy="7" r="4" />
+                                </svg>
+                                Personal Details
+                            </h3>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Director Name <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                    <circle cx="12" cy="7" r="4" />
+                                </svg>
+                                <input type="text" id="reg-director-name" placeholder="Enter director name" />
+                            </div>
+                            <span class="field-error" id="reg-director-name-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Company Registration Number <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="16" rx="2" ry="2" />
+                                    <line x1="16" y1="2" x2="16" y2="4" />
+                                    <line x1="8" y1="2" x2="8" y2="4" />
+                                    <line x1="3" y1="10" x2="21" y2="10" />
+                                </svg>
+                                <input type="text" id="reg-company-reg" placeholder="Enter company reg number" />
+                            </div>
+                            <span class="field-error" id="reg-company-reg-error"></span>
+                        </div>
+
+
+                        <label class="checkbox-label" style="margin-bottom:20px;">
+                            <input type="checkbox" id="reg-terms" /> <span class="checkmark"></span>
+                            I agree to the <a href="#" onclick="event.stopPropagation();">Terms & Conditions</a> and <a
+                                href="#" onclick="event.stopPropagation();">Privacy Policy</a>
+                        </label>
+                        <span class="field-error" id="reg-terms-error"></span>
+                        <button type="submit" class="btn btn-primary btn-full">Submit Application Request</button>
+                    </form>
+                    <div class="auth-footer">
+                        <p>Already have an account? <a href="#" onclick="navigateTo('screen-login');return false;">Sign
+                                In</a></p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-  </div><!-- end #app -->
+        <!-- ========== OTP VERIFICATION ========== -->
+        <div id="screen-otp" class="screen">
+            <div class="auth-screen">
+                <div class="screen-top-bar">
+                    <button class="back-btn" onclick="navigateTo('screen-register')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                    </button>
+                    <h2>Verify OTP</h2>
+                    <div style="width:40px"></div>
+                </div>
+                <div class="auth-body" style="text-align:center;">
+                    <div class="otp-illustration">
+                        <svg viewBox="0 0 120 120" width="120" height="120">
+                            <circle cx="60" cy="60" r="55" fill="var(--primary-light)" opacity="0.2" />
+                            <circle cx="60" cy="60" r="40" fill="var(--primary-light)" opacity="0.3" />
+                            <rect x="35" y="30" width="50" height="60" rx="8" fill="var(--primary)" opacity="0.9" />
+                            <rect x="42" y="50" width="36" height="8" rx="4" fill="white" opacity="0.8" />
+                            <rect x="42" y="62" width="24" height="8" rx="4" fill="white" opacity="0.5" />
+                            <circle cx="60" cy="40" r="5" fill="white" opacity="0.7" />
+                        </svg>
+                    </div>
+                    <h3 style="margin:20px 0 8px;">Verification Code</h3>
+                    <p class="form-section-desc">We've sent a 6-digit code to your registered mobile number</p>
+                    <p class="otp-phone-display">+44 •••• ••• 000</p>
+                    <div class="otp-inputs" style="margin:24px 0;">
+                        <input type="text" maxlength="1" class="otp-box" data-otp-reg="1" />
+                        <input type="text" maxlength="1" class="otp-box" data-otp-reg="2" />
+                        <input type="text" maxlength="1" class="otp-box" data-otp-reg="3" />
+                        <input type="text" maxlength="1" class="otp-box" data-otp-reg="4" />
+                        <input type="text" maxlength="1" class="otp-box" data-otp-reg="5" />
+                        <input type="text" maxlength="1" class="otp-box" data-otp-reg="6" />
+                    </div>
+                    <div class="otp-timer">
+                        <span id="otp-timer-text">Resend OTP in <strong id="otp-countdown">30</strong>s</span>
+                        <button class="btn-link hidden" id="resend-otp-btn" onclick="resendOTP()">Resend OTP</button>
+                    </div>
+                    <button class="btn btn-primary btn-full" style="margin-top:24px;" onclick="verifyOTP()">Verify &
+                        Continue</button>
+                </div>
+            </div>
+        </div>
 
-  <script src="js/data.js"></script>
-  <script src="js/app.js"></script>
+        <!-- ========== FORGOT PASSWORD ========== -->
+        <div id="screen-forgot-password" class="screen">
+            <div class="auth-screen">
+                <div class="screen-top-bar">
+                    <button class="back-btn" onclick="navigateTo('screen-login')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                    </button>
+                    <h2>Reset Password</h2>
+                    <div style="width:40px"></div>
+                </div>
+                <div class="auth-body" style="text-align:center;">
+                    <div class="otp-illustration">
+                        <svg viewBox="0 0 120 120" width="120" height="120">
+                            <circle cx="60" cy="60" r="55" fill="#FFF3E0" opacity="0.5" />
+                            <circle cx="60" cy="60" r="40" fill="#FFB74D" opacity="0.2" />
+                            <rect x="35" y="35" width="50" height="50" rx="12" fill="var(--primary)" />
+                            <path d="M60 50 L60 65" stroke="white" stroke-width="3" stroke-linecap="round" />
+                            <circle cx="60" cy="72" r="2.5" fill="white" />
+                        </svg>
+                    </div>
+                    <h3 style="margin:20px 0 8px;">Forgot Your Password?</h3>
+                    <p class="form-section-desc">Enter your email to receive a reset link</p>
+                    <form id="forgot-form" class="auth-form" style="text-align:left;margin-top:24px;" novalidate>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                                <input type="email" id="forgot-email" placeholder="pharmacy@example.com" />
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Send Reset Link</button>
+                    </form>
+                    <div id="forgot-success" class="hidden" style="margin-top:24px;">
+                        <div class="success-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" width="48"
+                                height="48">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                <polyline points="22 4 12 14.01 9 11.01" />
+                            </svg>
+                        </div>
+                        <h3 style="margin:16px 0 8px;color:var(--success);">Email Sent!</h3>
+                        <p class="form-section-desc">Check your inbox for password reset instructions</p>
+                        <button class="btn btn-primary btn-full" style="margin-top:20px;"
+                            onclick="navigateTo('screen-login')">Back
+                            to Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== SELECT PHARMACY ========== -->
+        <div id="screen-select-pharmacy" class="screen">
+            <div class="full-screen-page">
+                <div class="screen-top-bar">
+                    <div style="width:40px"></div>
+                    <h2>Select Pharmacy</h2>
+                    <div style="width:40px"></div>
+                </div>
+                <div class="page-body scrollable">
+                    <p class="form-section-desc" style="text-align:center;margin-bottom:20px;">Choose the pharmacy
+                        you're ordering
+                        for today</p>
+                    <div class="search-bar-mini">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                        <input type="text" id="pharmacy-search" placeholder="Search pharmacy..."
+                            oninput="filterPharmacies(this.value)" />
+                    </div>
+                    <div id="pharmacy-list" class="pharmacy-list">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== MAIN APP (with bottom nav) ========== -->
+        <div id="screen-main" class="screen">
+            <div class="main-app">
+                <!-- TOP STATUS BAR -->
+                <div class="app-status-bar">
+                    <span class="status-time" id="status-time">13:36</span>
+                    <div class="status-icons">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                            <path
+                                d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z" />
+                        </svg>
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                            <rect x="17" y="4" width="4" height="16" rx="1" />
+                            <rect x="11" y="8" width="4" height="12" rx="1" />
+                            <rect x="5" y="12" width="4" height="8" rx="1" />
+                        </svg>
+                        <span class="battery-icon">87%</span>
+                    </div>
+                </div>
+
+                <!-- PAGE CONTAINER -->
+                <div class="page-container">
+
+                    <!-- ===== HOME / DASHBOARD ===== -->
+                    <div id="page-home" class="page active">
+                        <div class="page-header-dashboard">
+                            <div class="header-top">
+                                <div class="header-left">
+                                    <p class="greeting" id="greeting-text">Greetings From B&S</p>
+                                    <h2 class="pharmacy-name" id="selected-pharmacy-name">Green Cross Pharmacy</h2>
+                                </div>
+                                <div class="header-right">
+                                    <button class="icon-btn notification-btn" onclick="showPage('page-notifications')">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                                            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                                        </svg>
+                                        <span class="notification-badge" id="notif-badge">3</span>
+                                    </button>
+                                    <div class="avatar" onclick="switchTab('account')">
+                                        <span>GC</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="selected-pharmacy-pill" onclick="navigateTo('screen-select-pharmacy')">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                    height="14">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                                <span id="pharmacy-pill-name">Green Cross Pharmacy</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                    height="14">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="page-scroll">
+                            <!-- Dashboard Search Bar -->
+                            <div class="dash-search-bar" onclick="switchTab('search')">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+                                    height="18">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                                </svg>
+                                <span>Search medicines, brands...</span>
+                            </div>
+
+                            <!-- Dashboard Options Grid -->
+                            <div class="dash-options-grid">
+                                <!-- Place Order -->
+                                <div class="dash-option-card place-order" onclick="switchTab('search')">
+                                    <div class="doc-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="9" cy="21" r="1" />
+                                            <circle cx="20" cy="21" r="1" />
+                                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                                        </svg>
+                                    </div>
+                                    <div class="doc-info">
+                                        <span class="doc-title">Place Order</span>
+                                        <span class="doc-subtitle">Search & order special medicines</span>
+                                    </div>
+                                </div>
+
+                                <!-- Reorder -->
+                                <div class="dash-option-card reorder"
+                                    onclick="showPage('page-orders');setOrderTab('repeat');">
+                                    <div class="doc-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="17 1 21 5 17 9" />
+                                            <path d="M3 11V9a4 4 0 0 1 4-4h14" />
+                                            <polyline points="7 23 3 19 7 15" />
+                                            <path d="M21 13v2a4 4 0 0 1-4 4H3" />
+                                        </svg>
+                                    </div>
+                                    <div class="doc-info">
+                                        <span class="doc-title">Reorder</span>
+                                        <span class="doc-subtitle">Quick refill for repeat items</span>
+                                    </div>
+                                </div>
+
+                                <!-- Today's Orders -->
+                                <div class="dash-option-card today-orders"
+                                    onclick="showPage('page-orders');setOrderTab('active');">
+                                    <div class="doc-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                            <polyline points="14 2 14 8 20 8" />
+                                        </svg>
+                                    </div>
+                                    <div class="doc-info">
+                                        <span class="doc-title">Today's Orders <span class="doc-badge"
+                                                id="today-orders">4</span></span>
+                                        <span class="doc-subtitle">Track active & pending orders</span>
+                                    </div>
+                                </div>
+
+                                <!-- Product Support -->
+                                <div class="dash-option-card product-support"
+                                    onclick="showPage('page-help');setSupportTab('product-support');">
+                                    <div class="doc-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                                        </svg>
+                                    </div>
+                                    <div class="doc-info">
+                                        <span class="doc-title">Product Support</span>
+                                        <span class="doc-subtitle">Inquiries & GPhC compliance</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Recent Orders Section -->
+                            <div class="section-header" style="margin-top: 8px;">
+                                <h3>Recent Orders</h3>
+                                <a href="#" class="see-all"
+                                    onclick="showPage('page-orders');switchTab('orders');return false;">See
+                                    All</a>
+                            </div>
+                            <div id="recent-orders-list" class="orders-list">
+                                <!-- Dynamic cards populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ===== SEARCH / MEDICINES ===== -->
+                    <div id="page-search" class="page">
+                        <div class="page-header-simple">
+                            <h2>Search Medicines</h2>
+                        </div>
+                        <div class="page-scroll">
+                            <div class="search-bar">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                                </svg>
+                                <input type="text" id="medicine-search"
+                                    placeholder="Search by name, code, or category..."
+                                    oninput="searchMedicines(this.value)" />
+                                <button class="filter-btn" onclick="toggleFilterPanel()">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="4" y1="6" x2="20" y2="6" />
+                                        <line x1="8" y1="12" x2="20" y2="12" />
+                                        <line x1="12" y1="18" x2="20" y2="18" />
+                                        <circle cx="6" cy="12" r="2" />
+                                        <circle cx="10" cy="18" r="2" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <!-- Category Tabs -->
+                            <div class="category-tabs">
+                                <button class="cat-tab active" data-cat="all"
+                                    onclick="filterByCategory('all', this)">All</button>
+                                <button class="cat-tab" data-cat="tariff"
+                                    onclick="filterByCategory('tariff', this)">Tariff</button>
+                                <button class="cat-tab" data-cat="non-tariff"
+                                    onclick="filterByCategory('non-tariff', this)">Non-Tariff</button>
+                                <button class="cat-tab" data-cat="imported"
+                                    onclick="filterByCategory('imported', this)">Imported</button>
+                                <button class="cat-tab" data-cat="specials"
+                                    onclick="filterByCategory('specials', this)">Specials</button>
+                                <button class="cat-tab" data-cat="obtain"
+                                    onclick="filterByCategory('obtain', this)">Obtain</button>
+                            </div>
+                            <!-- Filter Panel -->
+                            <div id="filter-panel" class="filter-panel hidden">
+                                <div class="filter-section">
+                                    <h4>Availability</h4>
+                                    <div class="filter-chips">
+                                        <button class="chip active" onclick="toggleChip(this)">All</button>
+                                        <button class="chip" onclick="toggleChip(this)">In Stock</button>
+                                        <button class="chip" onclick="toggleChip(this)">Out of Stock</button>
+                                    </div>
+                                </div>
+                                <div class="filter-section">
+                                    <h4>Prescription</h4>
+                                    <div class="filter-chips">
+                                        <button class="chip active" onclick="toggleChip(this)">All</button>
+                                        <button class="chip" onclick="toggleChip(this)">Rx Required</button>
+                                        <button class="chip" onclick="toggleChip(this)">Non-Rx</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Products Grid -->
+                            <div id="products-grid" class="products-grid">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== PRODUCT DETAIL ===== -->
+                    <div id="page-product-detail" class="page">
+                        <div class="page-header-simple" style="position:relative;">
+                            <button class="back-btn" onclick="showPage('page-search')"
+                                style="position:absolute;left:16px;">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="15 18 9 12 15 6" />
+                                </svg>
+                            </button>
+                            <h2>Product Details</h2>
+                        </div>
+                        <div class="page-scroll" id="product-detail-content">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- ===== CART ===== -->
+                    <div id="page-cart" class="page">
+                        <div class="page-header-simple">
+                            <h2>Order Cart</h2>
+                            <span class="cart-count-badge" id="cart-header-count">0</span>
+                        </div>
+                        <div class="page-scroll" id="cart-content">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- ===== ORDER SUCCESS ===== -->
+                    <div id="page-order-success" class="page">
+                        <div class="page-scroll"
+                            style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100%;padding:40px 24px;text-align:center;">
+                            <div class="success-animation">
+                                <div class="success-circle">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" width="48"
+                                        height="48">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <h2 style="margin:24px 0 8px;color:var(--text-primary);">Order Placed Successfully!</h2>
+                            <p class="form-section-desc">Your order has been submitted and is being processed</p>
+                            <div class="order-success-card">
+                                <div class="success-detail"><span>Order ID</span><strong
+                                        id="success-order-id">SRX-20260522-0045</strong></div>
+                                <div class="success-detail"><span>Date</span><strong>22 May 2026</strong></div>
+                                <div class="success-detail"><span>Status</span><span
+                                        class="status-pill status-received">Order
+                                        Received</span></div>
+                                <div class="success-detail"><span>Expected Delivery</span><strong>24-26 May
+                                        2026</strong></div>
+                            </div>
+                            <button class="btn btn-primary btn-full" style="margin-top:24px;"
+                                onclick="viewOrderTracking(latestOrderId)">Track Order</button>
+                            <button class="btn btn-outline btn-full" style="margin-top:12px;"
+                                onclick="showPage('page-home');switchTab('home');">Back to Home</button>
+                        </div>
+                    </div>
+
+                    <!-- ===== ORDERS ===== -->
+                    <div id="page-orders" class="page">
+                        <div class="page-header-simple">
+                            <h2>My Orders</h2>
+                        </div>
+                        <div class="page-scroll">
+                            <div class="order-tabs" id="order-tabs">
+                                <button class="order-tab active" data-otab="active"
+                                    onclick="setOrderTab('active')">Active</button>
+                                <button class="order-tab" data-otab="pending"
+                                    onclick="setOrderTab('pending')">Pending</button>
+                                <button class="order-tab" data-otab="repeat"
+                                    onclick="setOrderTab('repeat')">Repeat</button>
+                                <button class="order-tab" data-otab="hold" onclick="setOrderTab('hold')">Hold</button>
+                                <button class="order-tab" data-otab="cancelled"
+                                    onclick="setOrderTab('cancelled')">Cancelled</button>
+                                <button class="order-tab" data-otab="delivered"
+                                    onclick="setOrderTab('delivered')">Delivered</button>
+                            </div>
+                            <div id="orders-list-container" class="orders-list">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ORDER TRACKING ===== -->
+                    <div id="page-order-tracking" class="page">
+                        <div class="page-header-simple" style="position:relative;">
+                            <button class="back-btn" onclick="showPage('page-orders')"
+                                style="position:absolute;left:16px;">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="15 18 9 12 15 6" />
+                                </svg>
+                            </button>
+                            <h2>Order Tracking</h2>
+                        </div>
+                        <div class="page-scroll" id="order-tracking-content">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- ===== NOTIFICATIONS ===== -->
+                    <div id="page-notifications" class="page">
+                        <div class="page-header-simple" style="position:relative;">
+                            <button class="back-btn" onclick="showPage('page-home')"
+                                style="position:absolute;left:16px;">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="15 18 9 12 15 6" />
+                                </svg>
+                            </button>
+                            <h2>Notifications</h2>
+                        </div>
+                        <div class="page-scroll" id="notifications-content">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- ===== HELP & SUPPORT ===== -->
+                    <div id="page-help" class="page">
+                        <div class="page-header-simple">
+                            <h2>Help & Support</h2>
+                        </div>
+                        <div class="page-scroll">
+                            <div class="support-tabs">
+                                <button class="order-tab active" data-stab="product-support"
+                                    onclick="setSupportTab('product-support')">Product Support</button>
+                                <button class="order-tab" data-stab="order-support"
+                                    onclick="setSupportTab('order-support')">Order
+                                    Support</button>
+                                <button class="order-tab" data-stab="faq" onclick="setSupportTab('faq')">FAQ</button>
+                            </div>
+                            <div id="support-content">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ACCOUNT ===== -->
+                    <div id="page-account" class="page">
+                        <div class="page-scroll">
+                            <div class="account-header">
+                                <div class="account-avatar">
+                                    <span>GC</span>
+                                </div>
+                                <h3 id="account-name">Green Cross Pharmacy</h3>
+                                <p id="account-email">admin@greencross.co.uk</p>
+                                <span class="verified-badge">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"
+                                        width="14" height="14">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                        <polyline points="22 4 12 14.01 9 11.01" />
+                                    </svg>
+                                    GPhC Verified
+                                </span>
+                            </div>
+                            <!-- Credit Account Card -->
+                            <div class="credit-card-widget">
+                                <div class="credit-card-inner">
+                                    <div class="cc-top">
+                                        <span class="cc-label">Credit Account</span>
+                                        <span class="cc-account" id="cc-account-num">ACC-2024-00147</span>
+                                    </div>
+                                    <div class="cc-details">
+                                        <div class="cc-detail"><span>Credit Limit</span><strong>£25,000</strong></div>
+                                        <div class="cc-detail"><span>Available</span><strong>£18,450</strong></div>
+                                        <div class="cc-detail"><span>Due Amount</span><strong>£6,550</strong></div>
+                                    </div>
+                                    <div class="cc-bottom">
+                                        <div class="cc-detail"><span>Payment Terms</span><strong>Net 30</strong></div>
+                                        <div class="cc-detail"><span>Daily Limit</span><strong>£5,000</strong></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Account Menu -->
+                            <div class="account-menu">
+                                <div class="menu-section">
+                                    <h4>Orders & Activity</h4>
+                                    <button class="menu-item" onclick="showPage('page-orders');switchTab('orders');">
+                                        <div class="mi-left">
+                                            <div class="mi-icon blue-bg"><svg viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                                    <polyline points="14 2 14 8 20 8" />
+                                                </svg></div><span>My Orders</span>
+                                        </div>
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            width="18" height="18">
+                                            <polyline points="9 18 15 12 9 6" />
+                                        </svg>
+                                    </button>
+                                    <button class="menu-item" onclick="showPage('page-help');switchTab('help');">
+                                        <div class="mi-left">
+                                            <div class="mi-icon orange-bg"><svg viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                                                </svg></div><span>Service Requests</span>
+                                        </div>
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            width="18" height="18">
+                                            <polyline points="9 18 15 12 9 6" />
+                                        </svg>
+                                    </button>
+                                    <button class="menu-item" onclick="showAccountSubpage('prescriptions')">
+                                        <div class="mi-left">
+                                            <div class="mi-icon green-bg"><svg viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                                    <polyline points="14 2 14 8 20 8" />
+                                                    <line x1="16" y1="13" x2="8" y2="13" />
+                                                    <line x1="16" y1="17" x2="8" y2="17" />
+                                                </svg></div><span>My Prescriptions</span>
+                                        </div>
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            width="18" height="18">
+                                            <polyline points="9 18 15 12 9 6" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="menu-section">
+                                    <h4>Account Settings</h4>
+                                    <button class="menu-item" onclick="showAccountSubpage('profile')">
+                                        <div class="mi-left">
+                                            <div class="mi-icon purple-bg"><svg viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                                    <circle cx="12" cy="7" r="4" />
+                                                </svg></div><span>Edit Profile</span>
+                                        </div>
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            width="18" height="18">
+                                            <polyline points="9 18 15 12 9 6" />
+                                        </svg>
+                                    </button>
+                                    <button class="menu-item" onclick="showAccountSubpage('address')">
+                                        <div class="mi-left">
+                                            <div class="mi-icon blue-bg"><svg viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                                    <circle cx="12" cy="10" r="3" />
+                                                </svg></div><span>Delivery Address</span>
+                                        </div>
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            width="18" height="18">
+                                            <polyline points="9 18 15 12 9 6" />
+                                        </svg>
+                                    </button>
+                                    <button class="menu-item" onclick="showPage('page-notifications')">
+                                        <div class="mi-left">
+                                            <div class="mi-icon orange-bg"><svg viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                                                    <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                                                </svg></div><span>Notifications</span>
+                                        </div>
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            width="18" height="18">
+                                            <polyline points="9 18 15 12 9 6" />
+                                        </svg>
+                                    </button>
+                                    <button class="menu-item">
+                                        <div class="mi-left">
+                                            <div class="mi-icon green-bg"><svg viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                                                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                                                </svg></div><span>Privacy & Security</span>
+                                        </div>
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            width="18" height="18">
+                                            <polyline points="9 18 15 12 9 6" />
+                                        </svg>
+                                    </button>
+                                    <button class="menu-item">
+                                        <div class="mi-left">
+                                            <div class="mi-icon purple-bg"><svg viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <circle cx="12" cy="12" r="3" />
+                                                    <path
+                                                        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                                                </svg></div><span>App Settings</span>
+                                        </div>
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            width="18" height="18">
+                                            <polyline points="9 18 15 12 9 6" />
+                                        </svg>
+                                    </button>
+                                    <button class="menu-item" onclick="showAccountSubpage('change-password')">
+                                        <div class="mi-left">
+                                            <div class="mi-icon blue-bg"><svg viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4" />
+                                                </svg></div><span>Change Password</span>
+                                        </div>
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            width="18" height="18">
+                                            <polyline points="9 18 15 12 9 6" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="menu-section">
+                                    <button class="menu-item logout-item" onclick="logout()">
+                                        <div class="mi-left">
+                                            <div class="mi-icon red-bg"><svg viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                                                    <polyline points="16 17 21 12 16 7" />
+                                                    <line x1="21" y1="12" x2="9" y2="12" />
+                                                </svg></div><span>Logout</span>
+                                        </div>
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            width="18" height="18">
+                                            <polyline points="9 18 15 12 9 6" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- end page-container -->
+
+                <!-- BOTTOM NAV -->
+                <nav class="bottom-nav" id="bottom-nav">
+                    <button class="nav-item active" data-tab="home" onclick="switchTab('home')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                            <polyline points="9 22 9 12 15 12 15 22" />
+                        </svg>
+                        <span>Home</span>
+                    </button>
+                    <button class="nav-item" data-tab="search" onclick="switchTab('search')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                        <span>Search</span>
+                    </button>
+                    <button class="nav-item cart-nav" data-tab="cart" onclick="switchTab('cart')">
+                        <div class="cart-icon-wrap">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="9" cy="21" r="1" />
+                                <circle cx="20" cy="21" r="1" />
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                            </svg>
+                            <span class="cart-badge" id="cart-badge">0</span>
+                        </div>
+                        <span>Cart</span>
+                    </button>
+                    <button class="nav-item" data-tab="orders" onclick="switchTab('orders')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                            <line x1="16" y1="13" x2="8" y2="13" />
+                            <line x1="16" y1="17" x2="8" y2="17" />
+                        </svg>
+                        <span>Orders</span>
+                    </button>
+                    <button class="nav-item" data-tab="account" onclick="switchTab('account')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg>
+                        <span>Account</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+
+        <!-- ========== LOADING OVERLAY ========== -->
+        <div id="loading-overlay" class="loading-overlay hidden">
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+                <p id="loading-text">Processing...</p>
+            </div>
+        </div>
+
+        <!-- ========== TOAST ========== -->
+        <div id="toast" class="toast hidden">
+            <div class="toast-content">
+                <span class="toast-icon" id="toast-icon"></span>
+                <span class="toast-message" id="toast-message"></span>
+            </div>
+        </div>
+
+        <!-- ========== MODAL / BOTTOM SHEET ========== -->
+        <div id="modal-overlay" class="modal-overlay hidden" onclick="closeModal()">
+            <div class="modal-sheet" onclick="event.stopPropagation()">
+                <div class="modal-handle"></div>
+                <div id="modal-content"></div>
+            </div>
+        </div>
+
+        <!-- ========== ACCOUNT SUBPAGES ========== -->
+        <div id="screen-account-subpage" class="screen">
+            <div class="full-screen-page">
+                <div class="screen-top-bar">
+                    <button class="back-btn" onclick="navigateTo('screen-main');showPage('page-account');">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                    </button>
+                    <h2 id="subpage-title">Profile</h2>
+                    <div style="width:40px"></div>
+                </div>
+                <div class="page-body scrollable" id="subpage-content">
+                    <!-- Dynamic content -->
+                </div>
+            </div>
+        </div>
+
+    </div><!-- end #app -->
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>
