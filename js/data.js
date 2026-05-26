@@ -248,9 +248,9 @@ const ORDERS = [
     items: [
       { name: 'Acetazolamide 250mg Tablets', qty: 3, packSize: '112 tablets' }
     ],
-    status: 'dispatched',
-    statusLabel: 'Dispatched',
-    statusClass: 'status-dispatched',
+    status: 'delivered',
+    statusLabel: 'Delivered',
+    statusClass: 'status-delivered',
     trackingStep: 4,
     estimatedDelivery: '23 May 2026'
   },
@@ -363,10 +363,10 @@ const ORDERS = [
 
 const TRACKING_STEPS = [
   { key: 'received', label: 'Order Received', desc: 'Your order has been received and recorded' },
-  { key: 'review', label: 'Under Review', desc: 'Our pharmaceutical team is reviewing your order' },
-  { key: 'approved', label: 'Approved', desc: 'Your order has been approved for processing' },
+  // { key: 'review', label: 'Under Review', desc: 'Our pharmaceutical team is reviewing your order' },
+  // { key: 'approved', label: 'Approved', desc: 'Your order has been approved for processing' },
   { key: 'processing', label: 'Processing', desc: 'Your medicines are being prepared' },
-  { key: 'dispatched', label: 'Dispatched', desc: 'Your order has been dispatched from our facility' },
+  // { key: 'dispatched', label: 'Dispatched', desc: 'Your order has been dispatched from our facility' },
   { key: 'transit', label: 'In Transit', desc: 'Your order is on its way to your pharmacy' },
   { key: 'delivered', label: 'Delivered', desc: 'Your order has been delivered successfully' }
 ];
@@ -431,21 +431,31 @@ const NOTIFICATIONS = [
 const SUPPORT_TICKETS = [
   {
     id: 'SR-2026-0015',
-    category: 'Order Delay',
-    issueType: 'Late Delivery',
+    type: 'order-support',
     orderId: 'SRX-20260519-0033',
-    notes: 'Order has been on hold for 3 days with no update.',
+    pharmaName: 'Green Cross Pharmacy',
+    orderDate: '2026-05-19',
+    orderCategory: 'open',
+    issueType: 'Delayed Delivery',
+    description: 'Order has been on hold for 3 days with no update.',
+    priority: 'High',
+    notes: 'Please check on supply issues.',
     status: 'open',
-    statusLabel: 'Open',
+    statusLabel: 'Under Review',
     statusClass: 'status-review',
     date: '20 May 2026'
   },
   {
     id: 'SR-2026-0012',
-    category: 'Delivery Issue',
-    issueType: 'Damaged Package',
+    type: 'order-support',
     orderId: 'SRX-20260515-0024',
-    notes: 'One bottle of Melatonin arrived with broken seal.',
+    pharmaName: 'Green Cross Pharmacy',
+    orderDate: '2026-05-15',
+    orderCategory: 'close',
+    issueType: 'Damaged in Transit',
+    description: 'One bottle of Melatonin arrived with a broken seal.',
+    priority: 'Medium',
+    notes: 'Replacement was requested.',
     status: 'open',
     statusLabel: 'In Progress',
     statusClass: 'status-processing',
@@ -453,14 +463,49 @@ const SUPPORT_TICKETS = [
   },
   {
     id: 'SR-2026-0008',
-    category: 'Missing Product',
-    issueType: 'Incomplete Order',
+    type: 'order-support',
     orderId: 'SRX-20260510-0018',
-    notes: 'Resolved - replacement dispatched.',
+    pharmaName: 'Green Cross Pharmacy',
+    orderDate: '2026-05-10',
+    orderCategory: 'close',
+    issueType: 'Missing Items',
+    description: 'Resolved - replacement Acetazolamide dispatched.',
+    priority: 'High',
+    notes: 'Delivered and verified.',
     status: 'closed',
     statusLabel: 'Resolved',
     statusClass: 'status-delivered',
     date: '12 May 2026'
+  },
+  {
+    id: 'SR-2026-0005',
+    type: 'product-support',
+    productName: 'Liothyronine Sodium 20mcg Tablets',
+    productCategory: 'Specials',
+    issueType: 'Product Quality',
+    description: 'Tablets are slightly crumbly in this batch.',
+    contactNo: '020 7946 0148',
+    priority: 'Low',
+    notes: 'Batch LN-90214.',
+    status: 'open',
+    statusLabel: 'Under Review',
+    statusClass: 'status-review',
+    date: '10 May 2026'
+  },
+  {
+    id: 'SR-2026-0003',
+    type: 'product-support',
+    productName: 'Trihexyphenidyl 5mg/5ml Solution',
+    productCategory: 'Specials',
+    issueType: 'Availability Inquiry',
+    description: 'Urgent query on availability for dystonia patient.',
+    contactNo: '020 7946 0148',
+    priority: 'High',
+    notes: 'Stock is now returned.',
+    status: 'closed',
+    statusLabel: 'Answered',
+    statusClass: 'status-delivered',
+    date: '08 May 2026'
   }
 ];
 
