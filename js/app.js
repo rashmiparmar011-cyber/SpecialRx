@@ -442,11 +442,13 @@ function renderProductsGrid(medicines) {
       <div class="product-card-main" onclick="showProductDetail('${med.id}')">
         <div class="product-info">
           <div class="p-name">${med.name}</div>
-          <span class="p-category">${med.categoryLabel}</span>
-          <div class="p-details">
-            <span class="p-detail-tag">${med.packSize}</span>
-            ${med.rxRequired ? '<span class="product-rx-tag">Rx Required</span>' : ''}
-            <span class="product-stock ${med.inStock ? 'stock-in' : 'stock-out'}">${med.inStock ? 'In Stock' : 'Out of Stock'}</span>
+          <div class="p-meta" style="display: flex; align-items: center; gap: 8px; margin-top: 6px; margin-bottom: 6px; flex-wrap: wrap;">
+            <span class="p-category" style="margin-bottom: 0;">${med.categoryLabel}</span>
+            <span style="color: var(--text-muted); font-size: 12px; display: flex; align-items: center;">•</span>
+            <span class="p-packsize" style="font-size: 12px; color: var(--text-secondary); font-weight: 500;">${med.packSize}</span>
+          </div>
+          <div class="p-details" style="margin-top: 6px;">
+            ${med.rxRequired ? '<span class="product-rx-tag">Prescription Required</span>' : ''}
           </div>
         </div>
       </div>
@@ -461,7 +463,7 @@ function renderProductsGrid(medicines) {
             <button class="pc-qty-btn" onclick="changeSearchQty('${med.id}', 1)">+</button>
           </div>
         ` : `
-          <button class="pc-add-btn ${!med.inStock ? 'disabled' : ''}" onclick="${med.inStock ? `addFromSearch('${med.id}')` : ''}" ${!med.inStock ? 'disabled' : ''}>
+          <button class="pc-add-btn" onclick="addFromSearch('${med.id}')">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             Add
           </button>
@@ -568,11 +570,7 @@ function showProductDetail(medId) {
   const container = document.getElementById('product-detail-content');
   container.innerHTML = `
     <div class="product-detail fade-in">
-      <h2 class="pd-name">${med.name}</h2>
-      <div class="pd-header-badges" style="display: flex; gap: 8px; margin-top: 8px; margin-bottom: 16px;">
-        <span class="pd-category-badge">${med.categoryLabel}</span>
-        ${med.rxRequired ? '<span class="pd-rx-badge">Rx Required</span>' : ''}
-      </div>
+      <h2 class="pd-name" style="margin-bottom: 16px;">${med.name}</h2>
       <p class="pd-description">${med.description}</p>
       <div class="pd-info-grid">
         <div class="pd-info-item">
@@ -584,24 +582,16 @@ function showProductDetail(medId) {
           <strong>${med.packSize}</strong>
         </div>
         <div class="pd-info-item">
-          <span>Availability</span>
-          <strong style="color:${med.inStock ? 'var(--success)' : 'var(--danger)'};">${med.inStock ? 'In Stock' : 'Out of Stock'}</strong>
-        </div>
-        <div class="pd-info-item">
           <span>Storage</span>
           <strong style="font-size:12px;">${med.storage}</strong>
         </div>
         <div class="pd-info-item">
-          <span>Product Code</span>
-          <strong>${med.code}</strong>
-        </div>
-        <div class="pd-info-item">
-          <span>Rx Status</span>
-          <strong style="color:${med.rxRequired ? 'var(--danger)' : 'var(--success)'};">${med.rxRequired ? 'Prescription Required' : 'Non-Prescription'}</strong>
+          <span>Status</span>
+          <strong style="color:${med.rxRequired ? 'var(--info)' : 'var(--text-secondary)'};">${med.rxRequired ? 'Prescription Required' : 'Non-Prescription'}</strong>
         </div>
       </div>
       <div class="pd-actions">
-        <button class="btn btn-primary" onclick="addToCart('${med.id}')" ${!med.inStock ? 'disabled style="opacity:0.5;"' : ''}>
+        <button class="btn btn-primary" onclick="addToCart('${med.id}')">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
           Add to Cart
         </button>
@@ -735,7 +725,7 @@ function renderCart() {
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
           Upload Prescription
         </h4>
-        <p style="font-size:12px;color:var(--text-muted);margin-bottom:12px;">Required for Rx medicines in your cart</p>
+        <p style="font-size:12px;color:var(--text-muted);margin-bottom:12px;">Optional for Rx medicines in your cart</p>
         <div class="upload-area" onclick="simulateUpload()" id="upload-area">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
           <p>Tap to upload prescription</p>
@@ -844,10 +834,6 @@ function placeOrder() {
   const dec1 = document.getElementById('declaration-1')?.checked;
   const dec2 = document.getElementById('declaration-2')?.checked;
 
-  if (hasRxItems && !rxUploaded) {
-    showToast('Please upload prescription for Rx medicines', 'error');
-    return;
-  }
   if (!gphc) {
     showToast('GPhC Registration Number is required', 'error');
     return;
@@ -1182,42 +1168,24 @@ function renderSupportContent(tab) {
     container.innerHTML = `
       <div class="support-content" style="text-align: left;">
         <div class="support-form" style="background:white; padding:20px; border-radius:var(--radius-lg); border:1px solid var(--border); box-shadow:var(--shadow-sm);">
-          <h3 style="font-size: 16px; font-weight: 700; color: var(--primary); margin-bottom: 16px; border-bottom: 2px solid var(--border-light); padding-bottom: 8px;">Order Support Ticket</h3>
+          <h3 style="font-size: 16px; font-weight: 700; color: var(--primary); margin-bottom: 16px; border-bottom: 2px solid var(--border-light); padding-bottom: 8px;">Order Support</h3>
           
           <div class="form-group">
-            <label>Order ID <span class="required">*</span></label>
+            <label>Order No</label>
             <div class="input-wrapper">
               <input type="text" id="support-order-id" placeholder="e.g. SRX-20260522-0042" value="${latestOrderId || ''}" />
             </div>
           </div>
           
           <div class="form-group">
-            <label>Pharma Name <span class="required">*</span></label>
+            <label>Pharma Name</label>
             <div class="input-wrapper">
               <input type="text" id="support-order-pharma" placeholder="Enter pharmacy name" value="${selectedPharmacy.name}" readonly style="background:rgba(0,0,0,0.03); color:var(--text-secondary);" />
             </div>
           </div>
           
           <div class="form-group">
-            <label>Order Date <span class="required">*</span></label>
-            <div class="input-wrapper">
-              <input type="date" id="support-order-date" style="cursor: pointer;" />
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label>Order Status Category <span class="required">*</span></label>
-            <div class="input-wrapper">
-              <select id="support-order-category" style="flex: 1; border: none; background: transparent; padding: 13px 0; font-size: 14px; color: var(--text-primary); outline: none; cursor: pointer;">
-                <option value="">Select Category (Open/Closed)</option>
-                <option value="open">Open Order</option>
-                <option value="close">Closed Order</option>
-              </select>
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label>Issue Type <span class="required">*</span></label>
+            <label>Issue Type</label>
             <div class="input-wrapper">
               <select id="support-order-issue-type" style="flex: 1; border: none; background: transparent; padding: 13px 0; font-size: 14px; color: var(--text-primary); outline: none; cursor: pointer;">
                 <option value="">Select Issue Type</option>
@@ -1231,25 +1199,6 @@ function renderSupportContent(tab) {
             </div>
           </div>
           
-          <div class="form-group">
-            <label>Description <span class="required">*</span></label>
-            <div class="input-wrapper textarea-wrapper">
-              <textarea id="support-order-desc" placeholder="Describe the issue in detail..." rows="3"></textarea>
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label>Priority <span class="required">*</span></label>
-            <div class="input-wrapper">
-              <select id="support-order-priority" style="flex: 1; border: none; background: transparent; padding: 13px 0; font-size: 14px; color: var(--text-primary); outline: none; cursor: pointer;">
-                <option value="">Select Priority</option>
-                <option value="Low">Low</option>
-                <option value="Medium">Medium</option>
-                <option value="High">High</option>
-                <option value="Urgent">Urgent</option>
-              </select>
-            </div>
-          </div>
           
           <div class="form-group">
             <label>Notes (Optional)</label>
@@ -1281,69 +1230,25 @@ function renderSupportContent(tab) {
     container.innerHTML = `
       <div class="support-content" style="text-align: left;">
         <div class="support-form" style="background:white; padding:20px; border-radius:var(--radius-lg); border:1px solid var(--border); box-shadow:var(--shadow-sm);">
-          <h3 style="font-size: 16px; font-weight: 700; color: var(--primary); margin-bottom: 16px; border-bottom: 2px solid var(--border-light); padding-bottom: 8px;">Product Support Ticket</h3>
+          <h3 style="font-size: 16px; font-weight: 700; color: var(--primary); margin-bottom: 16px; border-bottom: 2px solid var(--border-light); padding-bottom: 8px;">Product Support</h3>
+          
           
           <div class="form-group">
-            <label>Product Name <span class="required">*</span></label>
-            <div class="input-wrapper">
-              <input type="text" id="support-prod-name" placeholder="Enter full medicine name" />
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label>Product Category <span class="required">*</span></label>
-            <div class="input-wrapper">
-              <select id="support-prod-category" style="flex: 1; border: none; background: transparent; padding: 13px 0; font-size: 14px; color: var(--text-primary); outline: none; cursor: pointer;">
-                <option value="">Select Category</option>
-                <option value="Tariff">Tariff</option>
-                <option value="Non-Tariff">Non-Tariff</option>
-                <option value="Imported">Imported</option>
-                <option value="Specials">Specials</option>
-                <option value="Obtain">Obtain</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label>Issue Type <span class="required">*</span></label>
-            <div class="input-wrapper">
-              <select id="support-prod-issue-type" style="flex: 1; border: none; background: transparent; padding: 13px 0; font-size: 14px; color: var(--text-primary); outline: none; cursor: pointer;">
-                <option value="">Select Issue Type</option>
-                <option value="Product Quality">Product Quality</option>
-                <option value="Damaged Product">Damaged Product</option>
-                <option value="Labeling Issue">Labeling Issue</option>
-                <option value="Storage Inquiry">Storage Inquiry</option>
-                <option value="Availability Inquiry">Availability Inquiry</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label>Product Description <span class="required">*</span></label>
+            <label>Product Description</label>
             <div class="input-wrapper textarea-wrapper">
-              <textarea id="support-prod-desc" placeholder="Describe the medicine issue or request in detail..." rows="3"></textarea>
+              <textarea id="support-prod-desc" placeholder="Any product details........" rows="3"></textarea>
             </div>
           </div>
           
-          <div class="form-group">
-            <label>Contact No <span class="required">*</span></label>
-            <div class="input-wrapper">
-              <span class="input-prefix">+44</span>
-              <input type="tel" id="support-prod-contact" placeholder="7700 900147" value="7700 900147" />
-            </div>
-          </div>
+          
           
           <div class="form-group">
-            <label>Priority <span class="required">*</span></label>
+            <label>Response type</label>
             <div class="input-wrapper">
               <select id="support-prod-priority" style="flex: 1; border: none; background: transparent; padding: 13px 0; font-size: 14px; color: var(--text-primary); outline: none; cursor: pointer;">
-                <option value="">Select Priority</option>
-                <option value="Low">Low</option>
-                <option value="Medium">Medium</option>
-                <option value="High">High</option>
-                <option value="Urgent">Urgent</option>
+                <option value="">Select Response Type</option>
+                <option value="Call Back">Call Back</option>
+                <option value="Email">Email</option>
               </select>
             </div>
           </div>
@@ -1361,7 +1266,7 @@ function renderSupportContent(tab) {
         <!-- History Section for Product Support -->
         <div class="history-section" style="margin-top: 32px; border-top: 1px solid var(--border); padding-top: 20px;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-            <h3 style="font-size: 15px; font-weight: 700; color: var(--primary); margin:0;">Product Tickets History</h3>
+            <h3 style="font-size: 15px; font-weight: 700; color: var(--primary); margin:0;">Product History</h3>
             <div style="display:flex; background:var(--border-light); padding:2px; border-radius:8px;">
               <button onclick="toggleSupportHistoryStatus('product-support', 'open')" id="product-support-history-open-btn" class="support-sub-tab active" style="font-size:12px; font-weight:600; padding:4px 12px; border-radius:6px; cursor: pointer; transition:var(--transition); background:white; box-shadow:var(--shadow-sm); color:var(--primary);">Open</button>
               <button onclick="toggleSupportHistoryStatus('product-support', 'closed')" id="product-support-history-closed-btn" class="support-sub-tab" style="font-size:12px; font-weight:600; padding:4px 12px; border-radius:6px; cursor: pointer; transition:var(--transition); background:none; box-shadow:none; color:var(--text-secondary);">Closed</button>
@@ -1394,11 +1299,11 @@ function renderSupportContent(tab) {
 
 function toggleSupportHistoryStatus(tab, status) {
   supportHistoryStatus[tab] = status;
-  
+
   // Toggle classes manually (active style: white background with shadow, color primary)
   const openBtn = document.getElementById(`${tab}-history-open-btn`);
   const closedBtn = document.getElementById(`${tab}-history-closed-btn`);
-  
+
   if (openBtn && closedBtn) {
     if (status === 'open') {
       openBtn.style.background = 'white';
@@ -1416,7 +1321,7 @@ function toggleSupportHistoryStatus(tab, status) {
       openBtn.style.color = 'var(--text-secondary)';
     }
   }
-  
+
   renderSupportTicketsList(tab);
 }
 
@@ -1442,40 +1347,24 @@ function renderSupportTicketsList(tab) {
 function submitOrderSupportRequest() {
   const orderId = document.getElementById('support-order-id').value;
   const pharmaName = document.getElementById('support-order-pharma').value;
-  const orderDate = document.getElementById('support-order-date').value;
-  const orderCategory = document.getElementById('support-order-category').value;
   const issueType = document.getElementById('support-order-issue-type').value;
-  const description = document.getElementById('support-order-desc').value;
-  const priority = document.getElementById('support-order-priority').value;
   const notes = document.getElementById('support-order-notes').value;
-
-  if (!orderId.trim()) { showToast('Order ID is required', 'error'); return; }
-  if (!pharmaName.trim()) { showToast('Pharmacy Name is required', 'error'); return; }
-  if (!orderDate) { showToast('Order Date is required', 'error'); return; }
-  if (!orderCategory) { showToast('Order Category is required', 'error'); return; }
-  if (!issueType) { showToast('Please select an issue type', 'error'); return; }
-  if (!description.trim()) { showToast('Please enter a description of the issue', 'error'); return; }
-  if (!priority) { showToast('Please select priority', 'error'); return; }
 
   showLoading('Submitting request...');
   setTimeout(() => {
     hideLoading();
     const ticketId = `SR-ORD-${String(Math.floor(Math.random() * 10000)).padStart(4, '0')}`;
-    
-    // Parse short date for displaying
-    const d = new Date(orderDate);
-    const dateDisplay = formatDateShort(d);
 
     SUPPORT_TICKETS.unshift({
       id: ticketId,
       type: 'order-support',
       orderId: orderId,
       pharmaName: pharmaName,
-      orderDate: dateDisplay,
-      orderCategory: orderCategory,
-      issueType: issueType,
-      description: description,
-      priority: priority,
+      orderDate: formatDateShort(new Date()),
+      orderCategory: 'open',
+      issueType: issueType || 'General Inquiry',
+      description: 'Order inquiry',
+      priority: 'Medium',
       notes: notes,
       status: 'open',
       statusLabel: 'Under Review',
@@ -1484,14 +1373,10 @@ function submitOrderSupportRequest() {
     });
 
     showToast(`Request ${ticketId} submitted successfully`, 'success');
-    
+
     // Clear fields
     document.getElementById('support-order-id').value = '';
-    document.getElementById('support-order-date').value = '';
-    document.getElementById('support-order-category').value = '';
     document.getElementById('support-order-issue-type').value = '';
-    document.getElementById('support-order-desc').value = '';
-    document.getElementById('support-order-priority').value = '';
     document.getElementById('support-order-notes').value = '';
 
     renderSupportTicketsList('order-support');
@@ -1499,20 +1384,9 @@ function submitOrderSupportRequest() {
 }
 
 function submitProductSupportRequest() {
-  const productName = document.getElementById('support-prod-name').value;
-  const productCategory = document.getElementById('support-prod-category').value;
-  const issueType = document.getElementById('support-prod-issue-type').value;
   const description = document.getElementById('support-prod-desc').value;
-  const contactNo = document.getElementById('support-prod-contact').value;
   const priority = document.getElementById('support-prod-priority').value;
   const notes = document.getElementById('support-prod-notes').value;
-
-  if (!productName.trim()) { showToast('Product Name is required', 'error'); return; }
-  if (!productCategory) { showToast('Product Category is required', 'error'); return; }
-  if (!issueType) { showToast('Please select an issue type', 'error'); return; }
-  if (!description.trim()) { showToast('Please enter product description', 'error'); return; }
-  if (!contactNo.trim()) { showToast('Contact Number is required', 'error'); return; }
-  if (!priority) { showToast('Please select priority', 'error'); return; }
 
   showLoading('Submitting request...');
   setTimeout(() => {
@@ -1522,12 +1396,12 @@ function submitProductSupportRequest() {
     SUPPORT_TICKETS.unshift({
       id: ticketId,
       type: 'product-support',
-      productName: productName,
-      productCategory: productCategory,
-      issueType: issueType,
+      productName: 'General Product Inquiry',
+      productCategory: 'Non-Tariff',
+      issueType: 'General Inquiry',
       description: description,
-      contactNo: contactNo,
-      priority: priority,
+      contactNo: '',
+      priority: priority || 'Medium',
       notes: notes,
       status: 'open',
       statusLabel: 'Under Review',
@@ -1538,11 +1412,7 @@ function submitProductSupportRequest() {
     showToast(`Request ${ticketId} submitted successfully`, 'success');
 
     // Clear fields
-    document.getElementById('support-prod-name').value = '';
-    document.getElementById('support-prod-category').value = '';
-    document.getElementById('support-prod-issue-type').value = '';
     document.getElementById('support-prod-desc').value = '';
-    document.getElementById('support-prod-contact').value = '7700 900147';
     document.getElementById('support-prod-priority').value = '';
     document.getElementById('support-prod-notes').value = '';
 
@@ -1557,17 +1427,13 @@ function createTicketCard(ticket) {
         <div class="ticket-header" style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">
           <div>
             <div class="ticket-id" style="font-size:14px; font-weight:700; color:var(--primary);">${ticket.id}</div>
-            <div class="ticket-category" style="font-size:12px; color:var(--text-secondary); font-weight:600; margin-top:2px;">Order ID: ${ticket.orderId}</div>
+            <div class="ticket-category" style="font-size:12px; color:var(--text-secondary); font-weight:600; margin-top:2px;">Order No: ${ticket.orderId}</div>
           </div>
           <span class="status-pill ${ticket.statusClass}" style="font-size:11px; padding:3px 8px; border-radius:100px;">${ticket.statusLabel}</span>
         </div>
         <div style="font-size:13px; color:var(--text-secondary); display:grid; grid-template-columns:1fr 1fr; gap:8px 12px; margin:10px 0; background:var(--bg); padding:10px 12px; border-radius:8px; border: 1px solid var(--border-light);">
           <div><span style="font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; display:block; margin-bottom:2px;">Pharmacy</span><strong style="color:var(--text-primary); font-size:12px;">${ticket.pharmaName}</strong></div>
-          <div><span style="font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; display:block; margin-bottom:2px;">Order Date</span><strong style="color:var(--text-primary); font-size:12px;">${ticket.orderDate}</strong></div>
-          <div><span style="font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; display:block; margin-bottom:2px;">Order Category</span><strong style="color:var(--text-primary); font-size:12px;">${ticket.orderCategory === 'open' ? 'Open Order' : 'Closed Order'}</strong></div>
           <div><span style="font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; display:block; margin-bottom:2px;">Issue Type</span><strong style="color:var(--text-primary); font-size:12px;">${ticket.issueType}</strong></div>
-          <div style="grid-column: span 2;"><span style="font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; display:block; margin-bottom:2px;">Description</span><p style="margin:2px 0 0; font-size:12px; color:var(--text-primary); line-height:1.4;">${ticket.description}</p></div>
-          <div style="grid-column: span 2;"><span style="font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; display:block; margin-bottom:2px;">Priority</span><strong style="font-size:12px; color:${ticket.priority === 'High' || ticket.priority === 'Urgent' ? 'var(--danger)' : 'var(--text-primary)'};">${ticket.priority}</strong></div>
           ${ticket.notes ? `<div style="grid-column: span 2;"><span style="font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; display:block; margin-bottom:2px;">Notes</span><p style="margin:2px 0 0; font-size:12px; color:var(--text-secondary); font-style:italic;">${ticket.notes}</p></div>` : ''}
         </div>
         <div class="ticket-date" style="font-size:11px; color:var(--text-muted); text-align:right;">Submitted: ${ticket.date}</div>
@@ -1579,16 +1445,12 @@ function createTicketCard(ticket) {
         <div class="ticket-header" style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">
           <div>
             <div class="ticket-id" style="font-size:14px; font-weight:700; color:var(--primary);">${ticket.id}</div>
-            <div class="ticket-category" style="font-size:12px; color:var(--text-secondary); font-weight:600; margin-top:2px;">Product: ${ticket.productName}</div>
           </div>
           <span class="status-pill ${ticket.statusClass}" style="font-size:11px; padding:3px 8px; border-radius:100px;">${ticket.statusLabel}</span>
         </div>
         <div style="font-size:13px; color:var(--text-secondary); display:grid; grid-template-columns:1fr 1fr; gap:8px 12px; margin:10px 0; background:var(--bg); padding:10px 12px; border-radius:8px; border: 1px solid var(--border-light);">
-          <div><span style="font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; display:block; margin-bottom:2px;">Product Category</span><strong style="color:var(--text-primary); font-size:12px;">${ticket.productCategory}</strong></div>
-          <div><span style="font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; display:block; margin-bottom:2px;">Issue Type</span><strong style="color:var(--text-primary); font-size:12px;">${ticket.issueType}</strong></div>
-          <div><span style="font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; display:block; margin-bottom:2px;">Contact No</span><strong style="color:var(--text-primary); font-size:12px;">+44 ${ticket.contactNo || 'N/A'}</strong></div>
-          <div><span style="font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; display:block; margin-bottom:2px;">Priority</span><strong style="font-size:12px; color:${ticket.priority === 'High' || ticket.priority === 'Urgent' ? 'var(--danger)' : 'var(--text-primary)'};">${ticket.priority}</strong></div>
           <div style="grid-column: span 2;"><span style="font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; display:block; margin-bottom:2px;">Product Description</span><p style="margin:2px 0 0; font-size:12px; color:var(--text-primary); line-height:1.4;">${ticket.description}</p></div>
+          <div style="grid-column: span 2;"><span style="font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; display:block; margin-bottom:2px;">Response Type</span><strong style="font-size:12px; color:var(--text-primary);">${ticket.priority}</strong></div>
           ${ticket.notes ? `<div style="grid-column: span 2;"><span style="font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; display:block; margin-bottom:2px;">Notes</span><p style="margin:2px 0 0; font-size:12px; color:var(--text-secondary); font-style:italic;">${ticket.notes}</p></div>` : ''}
         </div>
         <div class="ticket-date" style="font-size:11px; color:var(--text-muted); text-align:right;">Submitted: ${ticket.date}</div>
