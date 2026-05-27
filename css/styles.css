@@ -1803,8 +1803,8 @@ img {
 .product-rx-tag {
   font-size: 10px;
   font-weight: 700;
-  color: var(--danger);
-  background: var(--danger-bg);
+  color: var(--info);
+  background: var(--info-bg);
   padding: 2px 6px;
   border-radius: var(--radius-sm);
 }
@@ -1948,7 +1948,7 @@ img {
   font-size: 11px;
   font-weight: 700;
   color: white;
-  background: var(--danger);
+  background: var(--info);
   padding: 4px 10px;
   border-radius: var(--radius-full);
 }
@@ -1983,16 +1983,17 @@ img {
 .pd-info-item span {
   display: block;
   font-size: 11px;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   margin-bottom: 4px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  font-weight: 600;
+  font-weight: 800;
 }
 
 .pd-info-item strong {
   font-size: 14px;
   color: var(--text-primary);
+  font-weight: 500;
 }
 
 .pd-actions {
@@ -2006,7 +2007,7 @@ img {
 
 /* === Cart === */
 .cart-content {
-  padding: 20px;
+  padding: 12px;
 }
 
 .cart-empty {
@@ -2158,10 +2159,10 @@ img {
 
 /* Cart Sections */
 .cart-section {
-  margin-top: 20px;
+  margin-top: 12px;
   background: var(--white);
   border-radius: var(--radius-md);
-  padding: 18px;
+  padding: 14px;
   box-shadow: var(--shadow-sm);
 }
 
@@ -2184,7 +2185,7 @@ img {
 .upload-area {
   border: 2px dashed var(--border);
   border-radius: var(--radius-md);
-  padding: 24px;
+  padding: 14px;
   text-align: center;
   cursor: pointer;
   transition: var(--transition);
