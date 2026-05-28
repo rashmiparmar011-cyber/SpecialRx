@@ -23,7 +23,8 @@
         <div class="splash-logo-container">
           <div class="splash-logo"
             style="width: 130px; height: 130px; border-radius: 50%; box-shadow: var(--shadow-lg); background: white; border: none; display: flex; align-items: center; justify-content: center; padding: 4px;">
-            <img src="images/bs-logo.png" alt="B&S Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%;" />
+            <img src="images/bs-logo.png" alt="B&S Logo"
+              style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%;" />
           </div>
           <h1 class="splash-title">B&S&nbsp;<span>Specials</span></h1>
           <p class="splash-subtitle">Pharmaceutical Special Orders</p>
@@ -46,12 +47,13 @@
       <div class="auth-screen">
         <div class="auth-header">
           <div class="auth-logo-row"
-            style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px; width: 100%; flex-wrap: wrap;">
+            style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; width: 100%; flex-wrap: wrap;">
             <!-- B&S Specials Logo & Text -->
             <div style="display: flex; align-items: center; gap: 10px; flex-shrink: 0;">
               <div class="auth-logo-icon"
                 style="width: 52px; height: 52px; background: white; border-radius: 50%; box-shadow: var(--shadow-sm); flex-shrink: 0; padding: 3px; border: none; display: flex; align-items: center; justify-content: center;">
-                <img src="images/bs-logo.png" alt="B&S Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%;" />
+                <img src="images/bs-logo.png" alt="B&S Logo"
+                  style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%;" />
               </div>
               <span style="font-size: 24px; font-weight: 800; color: white; letter-spacing: -0.3px;">B&S Specials</span>
             </div>
@@ -507,13 +509,13 @@
                     </svg>
                   </div>
                   <div class="doc-info">
-                    <span class="doc-title">Place Order</span>
+                    <span class="doc-title">New Order</span>
                     <span class="doc-subtitle">Search & order special medicines</span>
                   </div>
                 </div>
 
                 <!-- Reorder -->
-                <div class="dash-option-card reorder" onclick="showPage('page-orders');setOrderTab('repeat');">
+                <div class="dash-option-card reorder" onclick="showPage('page-orders');setOrderTab('previous');">
                   <div class="doc-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <polyline points="17 1 21 5 17 9" />
@@ -523,7 +525,7 @@
                     </svg>
                   </div>
                   <div class="doc-info">
-                    <span class="doc-title">Reorder</span>
+                    <span class="doc-title">Re-Order</span>
                     <span class="doc-subtitle">Quick refill for repeat items</span>
                   </div>
                 </div>
@@ -537,8 +539,8 @@
                     </svg>
                   </div>
                   <div class="doc-info">
-                    <span class="doc-title">Today's Orders <span class="doc-badge" id="today-orders">4</span></span>
-                    <span class="doc-subtitle">Track active & pending orders</span>
+                    <span class="doc-title">My Order <span class="doc-badge" id="today-orders">4</span></span>
+                    <span class="doc-subtitle">Active and past orders</span>
                   </div>
                 </div>
 
@@ -551,14 +553,14 @@
                     </svg>
                   </div>
                   <div class="doc-info">
-                    <span class="doc-title">Product Support</span>
-                    <span class="doc-subtitle">Inquiries & GPhC compliance</span>
+                    <span class="doc-title">New Product Enquiry</span>
+                    <span class="doc-subtitle">Explore your new product requirements</span>
                   </div>
                 </div>
               </div>
 
               <!-- Recent Orders Section -->
-              <div class="section-header" style="margin-top: 8px;">
+              <div class="section-header">
                 <h3>Recent Orders</h3>
                 <a href="#" class="see-all" onclick="showPage('page-orders');switchTab('orders');return false;">See
                   All</a>
@@ -679,12 +681,10 @@
             </div>
             <div class="page-scroll">
               <div class="order-tabs" id="order-tabs">
-                <button class="order-tab active" data-otab="active" onclick="setOrderTab('active')">Active</button>
-                <button class="order-tab" data-otab="pending" onclick="setOrderTab('pending')">Pending</button>
-                <button class="order-tab" data-otab="repeat" onclick="setOrderTab('repeat')">Repeat</button>
-                <button class="order-tab" data-otab="hold" onclick="setOrderTab('hold')">Hold</button>
-                <button class="order-tab" data-otab="cancelled" onclick="setOrderTab('cancelled')">Cancelled</button>
-                <button class="order-tab" data-otab="delivered" onclick="setOrderTab('delivered')">Delivered</button>
+                <button class="order-tab active" data-otab="active" onclick="setOrderTab('active')">Active
+                  Orders</button>
+                <button class="order-tab" data-otab="previous" onclick="setOrderTab('previous')">Previous
+                  Orders</button>
               </div>
               <div id="orders-list-container" class="orders-list">
                 <!-- Populated by JS -->
@@ -729,11 +729,18 @@
             </div>
             <div class="page-scroll">
               <div class="support-tabs">
-                <button class="order-tab active" data-stab="product-support"
-                  onclick="setSupportTab('product-support')">Product Support</button>
-                <button class="order-tab" data-stab="order-support" onclick="setSupportTab('order-support')">Order
-                  Support</button>
-                <button class="order-tab" data-stab="faq" onclick="setSupportTab('faq')">FAQ</button>
+                <button class="order-tab active" data-stab="product-support" onclick="setSupportTab('product-support')"
+                  style="display: inline-flex; align-items: center; gap: 6px;">
+
+                  Product Enquiry</button>
+                <button class="order-tab" data-stab="order-support" onclick="setSupportTab('order-support')"
+                  style="display: inline-flex; align-items: center; gap: 6px;">
+
+                  Order Support</button>
+                <button class="order-tab" data-stab="faq" onclick="setSupportTab('faq')"
+                  style="display: inline-flex; align-items: center; gap: 6px;">
+
+                  FAQ</button>
               </div>
               <div id="support-content">
                 <!-- Populated by JS -->
@@ -906,14 +913,12 @@
             </div>
             <span>Cart</span>
           </button>
-          <button class="nav-item" data-tab="orders" onclick="switchTab('orders')">
+
+          <button class="nav-item" data-tab="help" onclick="switchTab('help')">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-              <polyline points="14 2 14 8 20 8" />
-              <line x1="16" y1="13" x2="8" y2="13" />
-              <line x1="16" y1="17" x2="8" y2="17" />
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
             </svg>
-            <span>Orders</span>
+            <span>Support</span>
           </button>
           <button class="nav-item" data-tab="account" onclick="switchTab('account')">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
